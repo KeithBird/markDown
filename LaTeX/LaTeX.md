@@ -12,12 +12,10 @@
 
 [LaTeX 各种命令，符号](https://blog.csdn.net/GarfieldEr007/article/details/51646604?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 
-
-
 |  |      | | |
 | :-------: | :---------: | :-------: | :-------: |
-| $x_i$ | `$x_i$` | $\mathring{U}$ | `$\mathring{U}$` |
-|   $x^2$   |   `$x^2$`   | $\partial$ | `$\partial$` |
+| $x_i$ | `$x_i$` |  |  |
+|   $x^2$   |   `$x^2$`   |  |  |
 | $\sqrt[123]{ x^2+y^2 }$ | `$\sqrt[123]{ x^2+y^2 }$` |  |  |
 | $\dots$ |`$\dots$`| $\vee$ | `$\vee$` |
 | $\cdots$ |`$\cdots$`|     $\wedge$      | `$wedge$` |
@@ -25,14 +23,20 @@
 | $\int_1^n$ |`$\int_1^n$`| $\lnot$ | `$\lnot$` |
 | $lim_{x \to \infty}$ |`$lim_{x \to \infty}$`| $\gets$ | `$\gets$` |
 | $\frac{3}{8}$ |`$frac{3}{8}$`| $\to$ | `$\to$` |
-|  || $\times$ | `$\times$` |
-|  || $\cdot$ | `$\cdot$` |
+| $\mathring{U}$ |`$\mathring{U}$`| $\times$ | `$\times$` |
+| $\partial$ |`$\partial$`| $\cdot$ | `$\cdot$` |
 |  || $\div $ | `$\div$` |
-|  ||  |  |
-|  ||  |  |
-|  ||  |  |
-|  ||  |  |
-|  ||  |  |
+|  || $\mid$ | `$\mid$` |
+|  || $\in$ | `$\in$` |
+|  || $\notin$ | `$\notin$` |
+|  || $\subset$ | `$\subset$` |
+|  || $\subsetneqq$ | `$\ubsetneqq$` |
+| || $\supset$ | `$\supset$` |
+| || $\cap$ | `$\cap$` |
+| || $\cup$ | `$\cup$` |
+| || $\mathbb{R}$ | `$\mathbb{R}$` |
+| || $\emptyset$ | `$\emptyset$` |
+| ||  |  |
 
 ### 矩阵与行列式
 

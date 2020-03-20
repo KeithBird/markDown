@@ -2,9 +2,9 @@
 
 ---
 
-## 第一章  质点运动
+## 第一章 质点运动
 
-### 1-1  质点运动描述
+### 1-1 质点运动描述
 
 #### 位置矢量
 
@@ -30,7 +30,7 @@ $$
 \vec{v}~~=~~\vec{v_x}+\vec{v_y}+\vec{v_z}~~=~~v_x\vec{i}+v_y\vec{j}+v_z\vec{k}
 $$
 
-### 1-2  圆周运动
+### 1-2 圆周运动
 
 #### 切向单位矢量
 
@@ -84,6 +84,7 @@ $$
 #### 匀加速运动
 
 $\vec{\alpha}$ 为常矢量
+
 $$
 \vec{\tau}=\vec{\tau_0}+\vec{v_0}t+\frac{1}{2}
 \vec{\alpha}t^2
@@ -101,7 +102,7 @@ $$
 \right.
 $$
 
-### 1-3  相对运动
+### 1-3 相对运动
 
 质点相对基本参考系的绝对速度 $\vec{v}$ ，等于运动参考系相对绝对参考系的牵连速度 $\vec{u}$ 与质点相对速度参考系的相对速度 $\vec{v'}$ 之和。
 
@@ -121,23 +122,128 @@ $$
 \end{align}
 $$
 
-
-
 2. 质点作曲线运动的方程为 $x=2t,~y=4-t^2(SI)$ ，求 $t$ 时刻质点的 $a_\tau$ 和 $a_\tau$ 
-   $$
-   \begin{align}
-   		\vec{v}&=2\vec{e_x}-2t\vec{e_y}\\
-   		\vec{a}&=-2\vec{e_y}\\\\
-   		\vec{e_\tau}&=\frac{\vec{v}}{|\vec{v}|}\\
-   		&=\frac{2\vec{e_x}-2t\vec{e_y}}{\sqrt{2^2+(2t)^2}}\\
-   		&=\frac{\vec{e_x}-t\vec{e_y}}{\sqrt{1+t^2}}\\\\
-   		\vec{a_\tau}&=\frac{dv}{dt}\vec{e_\tau}\\
-   		&=(-2\vec{e_y})\frac{(\vec{e_x}-t\vec{e_y})}{1+t^2}\\
-   		&=\frac{2t}{\sqrt{1+t^2}}\\\\
-   		\vec{a_n}&=\sqrt{|\vec{a}|^2-(\vec{a_\tau})^2}\\
-   		&=\frac{2}{\sqrt{1+t^2}}
-   		
-   \end{align}
-   $$
-   
+$$
+\begin{align}
+	\vec{v}&=2\vec{e_x}-2t\vec{e_y}\\
+	\vec{a}&=-2\vec{e_y}\\\\
+   	\vec{e_\tau}&=\frac{\vec{v}}{|\vec{v}|}\\
+   	&=\frac{2\vec{e_x}-2t\vec{e_y}}{\sqrt{2^2+(2t)^2}}\\
+   	&=\frac{\vec{e_x}-t\vec{e_y}}{\sqrt{1+t^2}}\\\\
+   	\vec{a_\tau}&=\frac{dv}{dt}\vec{e_\tau}\\
+   	&=(-2\vec{e_y})\frac{(\vec{e_x}-t\vec{e_y})}{1+t^2}\\
+   	&=\frac{2t}{\sqrt{1+t^2}}\\\\
+   	\vec{a_n}&=\sqrt{|\vec{a}|^2-(\vec{a_\tau})^2}\\
+  	&=\frac{2}{\sqrt{1+t^2}}	
+  \end{align}
+$$
+
+## 第二章 牛顿定律
+
+### 2-1 牛顿定律
+
+#### 牛顿第一定律
+
+不受外力的物体，运动状态保持不变
+
+如果物体炸裂成多个部分，动量保持不变
+$$
+m\vec{v}=m_1\vec{v_1}+m_2\vec{v_2}
+$$
+
+##### 惯性系
+
+参考系以**恒定速度**相对惯性系运动，惯性定律成立
+
+##### 非惯性系
+
+参考系相对惯性系作加速运动，地球不是严格的惯性系
+
+#### 牛顿第二定律
+
+动量随时间的变化率应当等于作用于物体的合力
+$$
+\vec{F}=\frac{d\vec{p}}{dt}=\frac{d(m\vec{v})}{dt}
+$$
+
+当 $m$ 为常量：
+$$
+\frac{d(m\vec{v})}{dt}=m\frac{d\vec{v}}{dt}=m\vec{a}
+$$
+
+
+#### 牛顿第三定律
+
+$$
+F=-F'
+$$
+
+### 2-2 物理量的单位和量纲
+
+#### 国际单位制（SI）
+
+### 2-3 几种常见的力
+
+#### 万有引力
+
+$$
+\vec{F}=-G\frac{m_1m_2}{r^2}\vec{e_r}
+$$
+
+#### 弹性力
+
+$$
+\vec{F}=-kx\vec{i}
+$$
+
+#### 例题-弹性力下的运动
+
+$F_x=-kx$
+$$
+\begin{align}
+		F_x=ma_x&=m\frac{dv_x}{dt}\\
+		-kx&=m\frac{dv_x}{dt}\\
+		-kxdx&=mv_xdv_x\\
+		积分：-kx^2&=mv_x^2
+\end{align}
+$$
+**Ps**: 对于力是**坐标函数**的情况，方程的两边要乘以**dx**
+
+#### 例题-阻尼力下的运动
+
+$f=-kv$
+$$
+\begin{align}
+-kv&=m\frac{dv}{dt}\\
+-\frac{k}{m}dt&=\frac{dv}{v}\\
+-\frac{k}{m}\int_0^tdt&=\int_{v_0}^{v}\frac{dv}{v}\\
+-\frac{k}{m}t&=In(v)-In(v_0)\\
+v&=v_0e^{-\frac{k}{m}t}\\\\\\
+v&=\frac{dx}{dt}\\
+dx&=vdt\\
+x&=x_0+\frac{m}{k}v_0(1-e^{-\frac{k}{m}t})
+\end{align}
+$$
+
+
+**Ps:** 对于力是**速度函数**的情况，要把相同的变量移动到同一边后积分	
+
+### 2-4 牛顿定律的应用举例
+
+#### 隔离体法
+
+将所研究的物体从与之联系的其他物体中隔离出来，标明力的方向
+
+### 2-0
+
+质量为 $m$ 的小球，在水中受的浮力为常力 $F$ ，当它从静止开始沉降时，受到水的粘滞阻力大小为 $f=kv$ 。求小球在水中竖直沉降的速度 $v$ 与时 $t$ 的关系式.
+$$
+F_t=mg-F-kv=ma_t=m\frac{dv}{dt}\\
+\frac{dv}{mg-kv-F}=\frac{dt}{m}\\
+$$
+
+
+
+
+
 
