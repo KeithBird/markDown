@@ -25,10 +25,10 @@
 | $\frac{3}{8}$ |`$frac{3}{8}$`| $\to$ | `$\to$` |
 | $\mathring{U}$ |`$\mathring{U}$`| $\times$ | `$\times$` |
 | $\partial$ |`$\partial$`| $\cdot$ | `$\cdot$` |
-|  || $\div $ | `$\div$` |
-|  || $\mid$ | `$\mid$` |
-|  || $\in$ | `$\in$` |
-|  || $\notin$ | `$\notin$` |
+| $\bigg|$ |`\bigg|`| $\div $ | `$\div$` |
+| $\approx$ |`\approx`| $\mid$ | `$\mid$` |
+| $\oint$ |`$\oint$`| $\in$ | `$\in$` |
+| $\infty$ |`\infty`| $\notin$ | `$\notin$` |
 |  || $\subset$ | `$\subset$` |
 |  || $\subsetneqq$ | `$\ubsetneqq$` |
 | || $\supset$ | `$\supset$` |

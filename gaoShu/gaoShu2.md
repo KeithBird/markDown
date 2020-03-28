@@ -196,13 +196,114 @@ $$
 
 ##### 介值定理
 
-在有界闭区域 $D$ 上的多元连续性函数必取得介于最大值和最小值之间的**任何值**
+在有界闭区域 $D$ 上的多元连续性函数必取得介于最大值和最小值之间的**任何值**
 
 ### 9.2 偏导数
 
+#### 偏导数的定义及其计算方法
 
+##### 偏导数
 
+$$
+\frac{\partial f}{\partial x}\bigg|_{(x_0,y_0)}= f'_x(x_0, y_0)=\lim \limits_{\Delta x \to 0} \frac{f(x_0 + \Delta x, y_0) - f(x_0, y_0)}{\Delta x}
+$$
 
+##### 偏导函数
+
+对于每一点 $(x,y)$ 处的偏导数都存在
+
+##### 求法
+
+求 $\frac{\partial f}{\partial x}$ ，**将 $y$ 当作常数**，用一元求导法，对 $x$ 求导。  
+
+#### 高阶偏导数
+
+高阶混合偏导数在偏导数连续的条件下与求导次序无关。
+
+### 9.3 全微分
+
+#### 全微分的定义
+
+##### 偏增量
+
+$$
+f(x,y+\Delta y)-f(x,y)
+$$
+
+##### 偏微分
+
+$$
+f'_y(x,y) \Delta y
+$$
+
+##### 全增量
+
+$$
+\Delta z = f(x+\Delta x,y+\Delta y)-f(x,y)
+$$
+
+##### 全微分
+
+$$
+dz=A \Delta x + B \Delta y\\
+A = \frac{\partial z}{\partial x}~~~B = \frac{\partial z}{\partial y}
+$$
+
+##### 证明可微 ⚠️
+
+$\Delta z - dz = o(p) $ ，$p=\sqrt{(\Delta x)^2+(\Delta y)^2}$ ， $o(p)$ 为高阶无穷小
+
+即证：
+$$
+\lim \limits_{\Delta x \to 0\Delta y \to 0} \frac{\Delta z-(\frac{\partial z}{\partial x} \Delta x + \frac{\partial z}{\partial y} \Delta y)}{p}=0
+$$
+`偏导存在 + 连续 -> 全微分存在`
+
+### 9.4 多元复合函数的求导法则
+
+#### 一元函数与多元函数复合
+
+$z=f(\varphi(t),~\psi(t))$
+$$
+\frac{dz}{dt}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial t}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial t}
+$$
+
+#### 多元函数与多元函数复合
+
+$z=f(\varphi(x,y),~\psi(x,y))$
+$$
+\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x}
+$$
+
+$$
+\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial y}
+$$
+
+### 9.5 隐函数的求导法则
+
+#### 一个方程的情形
+
+#### 方程组的情形
+
+### 9.6 多元函数微分学的几何应用
+
+#### 一元向量值函数及其导数
+
+#### 空间曲线的切线与法平面
+
+#### 曲面的切平面与法线
+
+### 9.7 方向导数与梯度
+
+#### 方向导数
+
+#### 梯度
+
+### 9.8 多元函数的极值及其求法
+
+#### 多元函数的极值及最大值和最小值
+
+#### 条件极值 拉格朗日乘数法
 
 
 
