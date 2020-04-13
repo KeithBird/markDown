@@ -1,5 +1,7 @@
 # 数据结构
 
+[DATA STRUCTURE](https://github.com/xiufengcheng/DATASTRUCTURE)
+
 ## 第一章 概论
 
 ### 数据的逻辑结构
@@ -63,7 +65,7 @@
 
 $T(n)=n+n^2=O(n^2)$
 
-## 第二章 线性表
+## 第二章 List(线性表)
 
 ### 线性表的基本概念
 
@@ -103,7 +105,7 @@ $T(n)=n+n^2=O(n^2)$
 
 最后一个结点的指针域为head
 
-## 第三章 栈
+## 第三章 Stack(栈)
 
 它的插入、 删除等操作只能在表的一端进行。固定操作的一端叫**栈顶(top)**，而另一端称为**栈底(bottom)**。
 
@@ -164,7 +166,20 @@ bool Pop_L( LinkStack &S, ElemType &e) {
  }// Pop_L
 ```
 
-## 第四章 队列
+#### 中缀表达式 > 后缀表达式
+
+1. 读入操作数，直接送入输出符号栈
+2. 读入运算符
+    - 后进运算符优先级高于先进的，则继续进栈
+    - 后进运算符优先级不高于先进的，则将运算符号栈内高于或等于后进运算符级
+别的运算符依次弹出后进栈
+3. 读入括号
+	- 遇到开括号 (，进运算符号栈
+	- 遇到闭括号 )， 则把最靠近的开括号 ( 以及其后进栈的运算符依次弹出到符号栈
+4. 遇到结束符 “#”，则把运算符号栈内的所有运算符号依次弹出并压入输出符号栈
+5. 若输入为+、 –单目运算符，改为 0 与运算对象在前，运算符在后  
+
+## 第四章 Queue(队列)
 
 ### 定义
 
@@ -227,6 +242,7 @@ int inQueue (seqQueue *Q, dataType x){
     if((Q->rear+1) % MAXSIZE == Q->front){
 	return 0;
     }
+    
     else if((Q->rear+1) % MAXSIZE != Q->front){
 	Q->rear = (Q->rear+1) % MAXSIZE;
 	Q->data[Q->rear] = x;
@@ -236,3 +252,184 @@ int inQueue (seqQueue *Q, dataType x){
 ```
 
 ### 链队
+
+##### 出链队操作
+
+```c++
+bool deQueue_L(kinkQueue &Q, ElemType &e){
+    QueuePtr p;
+    if(Q.front==NULL)
+        return false;
+    
+    p=Q.front;				// 暂存队首指针以便回收队首结点
+    e=p->data;				// e返回队首元素的值
+    Q.front = p->next;		
+    if(Q.front==NULL)		// 若删除后队列为空，则使队尾指针为空
+        Q.rear = NULL;
+    
+    free(p);
+    return true;
+}
+```
+
+##### 入队操作
+
+```c++
+bool enQueue_L(likQueue &Q, ElemType e){
+    queuePtr s;
+    if((s=(LNode *)malloc(sizeof(LNode)))==NUll)
+        return false;					// 存储分配失败
+    
+    s->data = e;
+    s->next = NULL;
+    
+    if(Q.rear==NULL){
+        Q.front = Q.rear = s;			// 若链队为空,则新结点既是队首结点又是队尾结点
+    }else if(Q.rear!=NULL){
+        Q.rear = Q.rear->next = s; 		// 若链队非空，则新结点被链接到队尾并修改队尾指针
+    }
+    
+}
+```
+
+## 第五章 String(串)
+
+### 串
+
+#### 定义
+
+##### 子串
+
+串中任意个连续的字符组成的子序列称为该串的子串
+
+一个串也可以看成是自身的子串
+
+##### 子串个数公式
+
+`n(n+1)/2+1`
+
+##### 真子串个数公式
+
+`n(n+1)/2`
+
+#### 串的比较
+
+从左开始，第一个差异字符的大小关系
+
+##### ASCII码
+
+由**8bit**组成一个字符，共可形成2^8^=256个字符（仅英语）
+
+##### Unicode码
+
+由**16bit**组成一个字符，共可表示2^16^=65536个字符（全世界的字符）
+
+#### 串和线性表的不同点
+
+- 串的数据元素是字符，即每个数据元素都是**一个**字符
+- 线性表的主要操作对象是某个**数据元素**
+- 串的操作主要操作对象是**整体或某一部分子串**
+
+### 顺序串
+
+#### 静态存储分配的顺序串
+
+用**定长**字符数组存储串值
+
+由于串值空间的大小已经确定，所以对串的插入、连接等不利
+
+```C++
+typedef struct{
+        char str[MaxStrSize];   //顺序串的最大容量
+        int length;             //顺序串的当前长度
+}SSqString;                		//静态顺序串类型
+```
+
+#### 动态存储分配的顺序串
+
+串值空间的大小是在**程序执行时动态分配**而得
+
+在串处理的应用程序中也常被选用
+
+**Ps：**动态分配的顺序串完全可用动态存储分配的顺序表SqList来表示
+
+```C++
+typedef struct {
+    char  *str;                  // 先存放非空串的首地址，不分配内存
+    int length;                  // 存放串的当前长度
+}DSqString;                      //待到程序执行时，再根据插入、删除等操作动态增补空间。
+```
+
+#### 串比较
+
+```C++
+int StrCompare_Sq(DSqString S,DSqString T){  
+    
+	int i=0;
+	while(i<S.length&&i<T.length){           // 串S和串T对应字符进行比较
+		if(S.str[i]>T.str[i]) return 1;
+		else if(S.str[i]<T.str[i]) return -1;
+		i++;
+	}
+    
+	if(i<S.length) return 1;
+	else if(i<T.length) return -1;
+    
+	return 0;
+}// StrCompare_Sq
+```
+
+#### 取子串
+
+在顺序串S中从第POS个位置开始，取长度为len的子串sub。
+
+```C++
+bool SubString_Sq(DSqString S,DSqString &Sub,int pos,int len){   
+	int i;
+	if(pos<0||pos>S.length-1||len<0||len>S.length-pos)  
+		return false;                          // 取子串的位置或子串的长度不合理
+	
+    if(Sub.str)   free(Sub.str);               // 释放Sub原有空间
+	
+    if(len!=0) { Sub.str=NULL; Sub.length=0; }   // 置Sub为空子串
+	else {
+		if(!(Sub.str=(char *)malloc(len*sizeof(char)))) return false;
+		for(i=0;i<len;i++)                     // 将串S中的len个字符复制到Sub中
+			Sub.str[i]=S.str[pos+i];
+		Sub.length=len;                		   // 子串Sub的串长为len
+	}
+	return true; 
+}// SubString_Sq
+```
+
+### 链式串
+
+#### 定义
+
+一个节点可以存放多个字符
+
+**单链结构：**结点大小为1的链式串
+
+**块链结构：**结点大小大于1的链式串
+
+在块链结构中最后一个结点通常填不满，则用#号把串值填满。
+
+#### 块链数据结构
+
+```C++
+typedef struct Chunk{      //可由用户定义的节点大小
+      char str[Number];    //一个节点存放Number个字符
+      struct Chunk  *next;
+}Chunk;                    //定义结点类型
+
+typedef struct{
+   Chunk  *head, *tail;    //串的头尾指针
+   int length;             //串的当前长度
+}
+```
+
+### KMP算法
+
+[KMP](https://mp.weixin.qq.com/s/kCjRuY6ygYJWWX5HPVLa5A)
+
+## 第六章 Array(数组)
