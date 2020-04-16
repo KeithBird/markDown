@@ -1,7 +1,5 @@
 # 离散数学
 
----
-
 ## 第一部分 数理逻辑
 
 ### 第一章 命题逻辑的基本概念
@@ -121,7 +119,7 @@ q为p的必要条件，1 $\to$ 0 $\Leftrightarrow$ 0
 3. 推理定理
 	 - **前提引入规则**：引入前提
 	 - **结论引入规则**：将所得结论作为后续证明的前提
-	 - **置换规则**：运用等值公式置换
+	 - **置换规则**：运用2类等值公式置换
 	 - **推理定理**9条
 
 #### 归谬法
@@ -136,39 +134,35 @@ q为p的必要条件，1 $\to$ 0 $\Leftrightarrow$ 0
 
 ### 第四章 一阶逻辑基本概念
 
+$$
+\forall x (P(x)\to Q(x))
+$$
+
 #### 个体
 
-可独立存在的客体
+可独立存在的客体 $~~~x$
 
 #### 个体域
 
-个体变动的取值范围
+个体变动的取值范围 $~~~P(x)$
 
 #### 谓词
 
-用来说明个体的性质或个体间关系
+用来说明个体的性质或个体间关系$~~~\to$
 
 #### 量词
 
 ##### 全称量词
 
-$\forall$，后面接 $\to$ (条件连接词)
+$\forall$，后接 $\vee$ (条件连接词) $~~~\forall(P(x)\to Q(x))$
 
 ##### 存在量词
 
-$\exists$，后接 $\vee$ (合取连接词)
-
-$$
-\forall x (P(x)\wedge Q(x))
-$$
+$\exists$，后接 $\to$ (合取连接词) $~\exist (P(x)\wedge Q(x))$
 
 #### 量词的辖域
 
-量词的作用范围
-
-$(P(x)\wedge Q(x))$
-
-
+量词的作用范围 $~~~(P(x)\to Q(x))$
 
 ### 第五章 一阶逻辑等值演算与推理
 
@@ -213,6 +207,36 @@ $\forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x) \wedge \forall xB(x)$
 $\exists x(A(x)\vee B(x))\Leftrightarrow \exists xA(x) \vee \exists xB(x)$
 
 #### 前束范式
+
+将量词提到最前面
+
+#### 谓词演算的推理理论
+
+##### 1. UI（全称量词消去规则）
+
+$$
+\forall xA(x) \Rightarrow A(c)
+$$
+
+##### 2. EI（存在量词消去规则）
+
+$$
+\exists xA(x) \Rightarrow A(c)
+$$
+
+##### 3. UG（全称量词引入规则）
+
+$$
+A(y) \Rightarrow \forall xA(x)\\
+y为任意值
+$$
+
+##### 4. EG（存在量词引入规则）
+
+$$
+A(c) \Rightarrow \exists xA(x)
+$$
+
 
 ## 第二部分 集合论
 

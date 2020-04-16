@@ -73,7 +73,6 @@ $T(n)=n+n^2=O(n^2)$
 
 线性表是具有相同数据类型的n(n≥0)个数据元素的有限序列
 
-
 #### 线性表的基本操作
 
 初始化、求长度、按地址搜索、按值搜索、插入、删除、显示
@@ -141,13 +140,14 @@ $T(n)=n+n^2=O(n^2)$
 
 ```c++
 bool Push_L(LinkStack &S, ElemType e) {
-      LinkStack p;
-      if((p=(LNode *)malloc(sizeof(LNode)))==NULL) return false;  // 存储分配失败
-      p->data=e;  
-      p->next=S;                      // 插入新的栈顶元素
-      S=p;                            // 修改栈顶指针
-      return true;
-     }// Push_L
+    LinkStack p;
+    if((p=(LNode *)malloc(sizeof(LNode)))==NULL)
+        return false;  				// 存储分配失败
+    p->data=e;  
+    p->next=S;                      // 插入新的栈顶元素
+    S=p;                            // 修改栈顶指针
+    return true;
+    }// Push_L
 ```
 
 #### 出栈操作
@@ -158,8 +158,8 @@ bool Pop_L( LinkStack &S, ElemType &e) {
     if(S) {                    // 栈非空
         p=S;
         S=S->next;             // 修改栈顶指针
-	e=p->data;             // 元素e返回其值
-	free(p);               // 释放结点空间
+	e=p->data;                 // 元素e返回其值
+	free(p);                   // 释放结点空间
 	return true; 
     }
    else return false;          // 栈空，出栈失败
@@ -236,7 +236,7 @@ bool Pop_L( LinkStack &S, ElemType &e) {
 
 ##### 入队操作
 
-```C++
+```c++
 int inQueue (seqQueue *Q, dataType x){
 
     if((Q->rear+1) % MAXSIZE == Q->front){
@@ -278,17 +278,16 @@ bool deQueue_L(kinkQueue &Q, ElemType &e){
 bool enQueue_L(likQueue &Q, ElemType e){
     queuePtr s;
     if((s=(LNode *)malloc(sizeof(LNode)))==NUll)
-        return false;					// 存储分配失败
+        return false;                   // 存储分配失败
     
     s->data = e;
     s->next = NULL;
     
     if(Q.rear==NULL){
-        Q.front = Q.rear = s;			// 若链队为空,则新结点既是队首结点又是队尾结点
+        Q.front = Q.rear = s;           // 若链队为空,则新结点既是队首结点又是队尾结点
     }else if(Q.rear!=NULL){
-        Q.rear = Q.rear->next = s; 		// 若链队非空，则新结点被链接到队尾并修改队尾指针
-    }
-    
+        Q.rear = Q.rear->next = s;      // 若链队非空，则新结点被链接到队尾并修改队尾指针
+    } 
 }
 ```
 
@@ -338,11 +337,11 @@ bool enQueue_L(likQueue &Q, ElemType e){
 
 由于串值空间的大小已经确定，所以对串的插入、连接等不利
 
-```C++
+```c++
 typedef struct{
-        char str[MaxStrSize];   //顺序串的最大容量
-        int length;             //顺序串的当前长度
-}SSqString;                		//静态顺序串类型
+    char str[MaxStrSize];   //顺序串的最大容量
+    int length;             //顺序串的当前长度
+}SSqString;                 //静态顺序串类型
 ```
 
 #### 动态存储分配的顺序串
@@ -353,29 +352,29 @@ typedef struct{
 
 **Ps：**动态分配的顺序串完全可用动态存储分配的顺序表SqList来表示
 
-```C++
+```c++
 typedef struct {
-    char  *str;                  // 先存放非空串的首地址，不分配内存
-    int length;                  // 存放串的当前长度
-}DSqString;                      //待到程序执行时，再根据插入、删除等操作动态增补空间。
+    char  *str;  // 先存放非空串的首地址，不分配内存
+    int length;  // 存放串的当前长度
+}DSqString;      //待到程序执行时，再根据插入、删除等操作动态增补空间
 ```
 
 #### 串比较
 
-```C++
-int StrCompare_Sq(DSqString S,DSqString T){  
+```c++
+int StrCompare_Sq(DSqString S,DSqString T){
+
+    int i=0;
+    while(i<S.length&&i<T.length){           // 串S和串T对应字符进行比较
+        if(S.str[i]>T.str[i]) return 1;
+        else if(S.str[i]<T.str[i]) return -1;
+        i++;
+    }
     
-	int i=0;
-	while(i<S.length&&i<T.length){           // 串S和串T对应字符进行比较
-		if(S.str[i]>T.str[i]) return 1;
-		else if(S.str[i]<T.str[i]) return -1;
-		i++;
-	}
-    
-	if(i<S.length) return 1;
-	else if(i<T.length) return -1;
-    
-	return 0;
+    if(i<S.length) return 1;
+    else if(i<T.length) return -1;
+
+    return 0;
 }// StrCompare_Sq
 ```
 
@@ -383,22 +382,23 @@ int StrCompare_Sq(DSqString S,DSqString T){
 
 在顺序串S中从第POS个位置开始，取长度为len的子串sub。
 
-```C++
-bool SubString_Sq(DSqString S,DSqString &Sub,int pos,int len){   
-	int i;
+```c++
+bool SubString_Sq(DSqString S,DSqString &Sub,int pos,int len){
+    int i;
 	if(pos<0||pos>S.length-1||len<0||len>S.length-pos)  
-		return false;                          // 取子串的位置或子串的长度不合理
-	
+	return false;                          // 取子串的位置或子串的长度不合理
+
     if(Sub.str)   free(Sub.str);               // 释放Sub原有空间
-	
-    if(len!=0) { Sub.str=NULL; Sub.length=0; }   // 置Sub为空子串
-	else {
-		if(!(Sub.str=(char *)malloc(len*sizeof(char)))) return false;
-		for(i=0;i<len;i++)                     // 将串S中的len个字符复制到Sub中
-			Sub.str[i]=S.str[pos+i];
-		Sub.length=len;                		   // 子串Sub的串长为len
-	}
-	return true; 
+
+    if(len!=0) { Sub.str=NULL; Sub.length=0; } // 置Sub为空子串
+    else {
+        if(!(Sub.str=(char *)malloc(len*sizeof(char)))) 
+            return false;
+        for(i=0;i<len;i++)                     // 将串S中的len个字符复制到Sub中
+        Sub.str[i]=S.str[pos+i];
+        Sub.length=len;                        // 子串Sub的串长为len
+    }
+    return true;
 }// SubString_Sq
 ```
 
@@ -416,7 +416,7 @@ bool SubString_Sq(DSqString S,DSqString &Sub,int pos,int len){
 
 #### 块链数据结构
 
-```C++
+```c++
 typedef struct Chunk{      //可由用户定义的节点大小
       char str[Number];    //一个节点存放Number个字符
       struct Chunk  *next;
@@ -433,3 +433,292 @@ typedef struct{
 [KMP](https://mp.weixin.qq.com/s/kCjRuY6ygYJWWX5HPVLa5A)
 
 ## 第六章 Array(数组)
+
+### 数组
+
+#### 注意事项
+
+**元素推广性**：元素本身可以具有某种结构，而不限定是单个的数据元素。
+
+**元素同一性**：元素具有相同的数据类型。
+
+**关系确定性**：每个元素均受n（n≥1）个线性关系的约束，元素个数和元素之间的关系一般不发生变动。
+
+#### 数组与线性表的区别
+
+- 数组是线性表的推广
+- 线性表：元素的线性排列（有序），其元素为**原子类型**
+- 数组：将线性表中数据元素的**类型扩充**为线性表
+- 数组的操作只能是**存取和修改**，
+而线性表除此之外还可以做**插入与删除**等操作
+
+### 矩阵的压缩存储
+
+压缩存储一般是针对矩阵中包含了**大量值相同的元素**或**零元素**的矩阵
+
+#### 基本思想是
+
+- **同值压1**：为多个值相同的元素只分配一个存储空间；
+- **零值不分**：对零元素不分配存储空间。
+
+#### 矩阵的分类
+
+- **特殊矩阵**：矩阵中有许多值相同的元素且它们的分布有一定规律。
+- **稀疏矩阵**：矩阵中有许多零元素并且零元素的分布没有规律。
+
+### 广义表
+
+#### 定义
+
+- 广义表是线性表的推广
+- 线性表中的元素都是原子的**单元素**
+- 广义表中的元素也可以是一个**子广义表**
+- 广义表的定义是递归的，广义表是线性表的**递归**数据结构
+
+#### 广义表的深度
+
+所有子表中表的最大深度加1
+
+若为原子，其深度为0
+
+#### 广义表的长度
+
+在广义表中，**同一层次**的每个节点是通过link域链接起来的
+
+所以可把它看做是由link域链接起来的单链表
+
+求广义表的长度就是求单链表的长度
+
+#### 广义表的存储
+
+由于广义表中既可存储原子也可以存储子表
+
+通常情况下广义表结构采用**链表**实现
+
+#### 头尾表
+
+```c++
+typedef struct GLNode{
+    int tag;        //标志域, 原子节点为0
+    union{
+        char atom;  //原子结点的值域
+        struct{
+            struct GLNode * hp, *tp;
+        }ptr;       // hp指向本子表结点, tp指向广义表结点
+    };
+}*Glist;
+```
+
+#### 左孩子右兄弟
+
+```c++
+typedef struct GLNode{
+    int tag;                //标志域
+    union{
+        int atom;
+        struct GLNode *hp;  //hp指向本表子节点
+    };
+    struct GLNode * tp;     //tp指向广义表下一级
+}*Glist;
+```
+
+#### 混合表示
+
+
+## 第七章(Tree)
+
+- 递归方法是树结构算法的基本特点
+
+### 定义
+
+##### 结点
+
+数据元素的别名
+
+##### 根结点
+
+树有且只有的特殊结点称，根结点没有前驱结点
+
+##### 集合
+
+**线性表**对应的是**序列**，**树对应的是集合**
+
+##### 结点的度
+
+树中结点所拥有的**子树**的个数
+
+##### 树的度
+
+树中各结点度的最大值
+
+##### 二叉树
+
+度为2的树
+
+##### 层数
+
+根结点的层数为1，其余结点的层数等于它的父结点的层数+1
+
+##### 深度
+
+所有结点的最大层次
+
+##### 叶子结点
+
+终端结点
+
+度为0的结点
+
+##### 分枝结点
+
+非终端结点
+
+度不为0的结点
+
+##### 子结点
+
+一个结点的子树的根结点
+
+##### 父结点
+
+一个子结点的上层结点（唯一）
+
+##### 兄弟
+
+具有相同父结点的结点
+
+##### 子孙
+
+一个结点的**所有子树**中的结点
+
+##### 祖先
+
+从根结点到该结点所经分支上的所有结点
+
+##### 堂兄弟
+
+父节点在同一层但不同
+
+##### 有序树
+
+树中结点的各子树从左到右是有次序的
+
+##### 森林
+
+m(m≥0)棵不相交的树的集合称为森林
+
+任何一棵树，删去根结点就变成了森林
+
+### 树的基本性质
+
+- 树中的结点数等于所有结点的度数加1
+- 度为 $d$ 的树中第 $i$ 层上至多$d^{~i-1}$个结点
+- 具有 $n$ 个结点的 $d$ 叉树的最小深度为 $log_d[n(d-1)+1]$
+
+### 二叉树
+
+#### 满二叉树
+
+一棵深度为 $k$ 且有 $2^{k-1}$ 个结点的二叉树
+
+#### 完全二叉树
+
+前n-1层是满的，
+但最底层允许在右边缺少连续若干个结点
+
+### 树的存储结构
+
+#### 双亲表示法
+
+用指针表示出每个结点的**双亲**在存储空间的位置信息
+
+容易寻找双亲，不容易找孩子，也不能反映各**兄弟间的关系**
+
+##### 双亲数组法
+
+用**一维结构体数组**依次存储树中的各结点
+
+数组元素中包括结点本身的信息和**双亲在数组中的下标**
+
+```c++
+struct {
+    TElemType data;
+    int parent;
+}PTreeNode;
+
+PTreeNode PTree[MAX_TREE_SIZE];
+```
+
+##### 双亲链表法
+
+用**一组任意的存储单元**存储树中各结点
+
+结点中包括结点本身的信息和指向该结点的**双亲的指针**
+
+```c++
+struct PTNode{
+    TElemType data;
+    struct PTreeNode* parent;
+}PTNode,PTNode*;  
+```
+
+#### 孩子表示法
+
+又称为**多重链表表示法**
+
+用指针表示出每个结点的**孩子**在存储空间的位置信息
+
+容易寻找孩子结点，不容易找双亲结点
+
+##### 孩子数组法
+
+用**一维结构体数组**依次存储树中的各结点
+
+数组元素中包括结点本身的信息以及结点的**孩子在数组中的下标**
+
+```c++
+struct {
+    TElemType data;
+    int child[MAX_SON_SIZE];
+}CTreeNode;
+
+CTreeNode CTree[MAX_TREE_SIZE];
+```
+
+##### 孩子链表法
+
+用**一组任意的存储单元**存储树中各结点
+
+结点中包括结点本身的信息和指向该结点的**所有孩子的指针**
+
+```c++
+struct CTNode {
+    TElemType data;
+    struct CTNode *child[MAX_SON_SIZE];
+}CTNode,*CTree;
+```
+
+#### 双亲儿子表示法
+
+##### 数组法
+
+```c++
+struct {
+	TElemType data;
+	int parent;
+	int child[MAX_SON_SIZE];
+}PCTreeNode;
+
+PCTreeNode PCTree[MAX_TREE_SIZE];
+```
+
+##### 链表法
+
+```c++
+struct PCTNode{
+	TElemType data;
+	struct PCTNode *parent;
+	struct PCTNode *child[MAX_SON_SIZE];
+}PCTNode,*PCTree;
+```
+

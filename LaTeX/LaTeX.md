@@ -62,10 +62,9 @@ X=\left|
 \right|
 $$
 
-
 ### 箭头
 
-![箭头](LaTeX.assets/箭头.JPG)
+![](LaTeX.assets/箭头.JPG)
 
 
 

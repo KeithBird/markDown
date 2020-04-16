@@ -262,7 +262,8 @@ $$
 #### 功
 
 $$
-dW=\vec{F}\cdot d\vec{r}=F|d\vec{r}|cos\theta
+dW=\vec{F}\cdot d\vec{r}=F|d\vec{r}|cos\theta\\
+\theta=位移与力的方向夹角
 $$
 
 $$
@@ -272,14 +273,15 @@ $$
 #### 动能
 
 $$
-W=\int dW=\int_{v_1}^{v_2}Fcos\theta|d\vec{r}|=m\frac{dv}{dt}ds=\int_{v_1}^{v_2}mvdv=\frac{1}{2}mv_2^2-\frac{1}{2}mv_1^1
+E_k=\int_{v_1}^{v_2}Fcos\theta|d\vec{r}|=\int m\frac{dv}{dt}ds=\int_{v_1}^{v_2}mvdv=\frac{1}{2}mv_2^2-\frac{1}{2}mv_1^2\\
+E_k=\int mvdv=\int m\omega r \cdot d\omega r=mr^2\cdot\frac{1}{2}\omega^2=\frac{1}{2}J\omega^2
 $$
 
-### 保守力 势能
+### 保守力&势能
 
 #### 保守力
 
-做功只与质点始末位置有关的力
+做功只与质点**始末位置**有关的力
 
 力的环量为0  $W=\oint_i \vec F \cdot d \vec r = 0$
 
@@ -305,7 +307,7 @@ $$
 \left\{
  \begin{array}{c}
  	v_1'=\frac{m_1-m_2}{m_1+m_2}v_1+\frac{2m_2}{m_1+m_2}v_2\\
-	v_2'=\frac{m_2-m_1}{m_1+m_2}v_1+\frac{2m_1}{m_1+m_2}v_2
+	v_2'=\frac{m_2-m_1}{m_1+m_2}v_2+\frac{2m_1}{m_1+m_2}v_1
  \end{array}
 \right.
 $$
@@ -323,7 +325,7 @@ $$
 #### 角动量
 
 $$
-\vec L = \vec r \times \vec p
+\vec L = \vec r \times \vec p=mvr=m\omega r^2=J\omega
 $$
 
 #### 力矩
@@ -344,7 +346,7 @@ J=mr^2
 $$
 
 $$
-\vec{M}=\frac{\vec{L}}{t}=J\vec{\alpha}
+M=\frac{L}{t}=J\alpha
 $$
 
 | 物体形状 | 转轴位置           | 转动惯量                    |
@@ -360,9 +362,82 @@ $$
 
 ### 角动量守恒
 
-若转动时，一个系统所受力都与转轴平行且经过转动中心
+系统所受力都**与转轴平行**或**经过转动中心**
 
 $$
 L = mr_1v_1(质点)+J_1\omega_1(转动体)= mr_2v_2+J_2\omega_2
 $$
+
+## 第五章 机械振动与机械波
+
+### 震动
+
+#### 简谐振动
+
+##### 文字描述求初相
+
+1. 以振幅 $A$为半径做圆
+
+2. 标出圆的方向 $\omega$，统一为逆时针
+
+3. 在图像中表示初始位置
+
+4. 根据**运动方向**和圆的方向确定待求点
+
+5. 连接圆心，求 $\varphi$
+
+##### 图像描述求初相
+
+1. 以振幅 $A$ 为半径做圆
+
+2. 标出圆的方向 $\omega$，统一为逆时针
+
+3. 在圆中表示初始位置
+
+4. 根据**运动方向**和圆的方向确定待求点
+
+5. 连接圆心，求 $\varphi$
+
+##### 求简谐震动方程
+
+将初相 $\varphi$ 和振幅 $A$ 代入方程求出 $\omega$
+
+$$
+\omega = \frac{2\pi}{T}=2\pi f
+$$
+
+##### 求运动时间
+
+1. 作图
+
+2. 在圆中表示始末位置
+
+3. 根据**运动方向**和圆的方向确定待求点
+
+4. $t = \theta / \omega$
+
+##### 根据弹簧参数求方程
+
+1. 求出 $A$ 和 $\omega$
+$$
+\omega  = \sqrt{\frac{k}{m}}~~~~~A=\sqrt{x_0^2+\frac{v_0^2}{\omega^2}}
+$$
+
+2. 代入方程求出可能的 $\varphi$，作图表示出两个 $\varphi$
+
+3. 根据**运动方向**和圆的方向确定待求点
+
+### 波动
+
+
+
+
+
+
+
+
+
+
+
+
 
