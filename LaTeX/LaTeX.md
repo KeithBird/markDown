@@ -14,13 +14,14 @@
 
 |  |      | | |
 | :-------: | :---------: | :-------: | :-------: |
-| $x_i$ | `x_i` |  |  |
-|   $x^2$   |   `x^2`   |  |  |
+| $x_i$ | `x_i` | $\le$ | `\le` |
+|   $x^2$   |   `x^2`   | $\ge$ | `\ge` |
 | $\sqrt[123]{ x^2+y^2 }$ | `\sqrt[123]{ x^2+y^2 }` | $\perp$ | `perp` |
 | $\dots$ |`\dots`| $\vee$ | `$\vee$` |
 | $\cdots$ |`\cdots`|     $\wedge$      | `$wedge$` |
 | $\sum \limits_{i=1}^n$​ |`\sum \limits_{i=1}^n`| $\leftrightarrow$ | `$\leftrightarrow$` |
 | $\int_1^n$ |`$\int_1^n$`| $\lnot$ | `$\lnot$` |
+| $\iiint$ |`$\iiint$`|  |  |
 | $\lim \limits_{x \to \infty}$ |`\lim \limits_{x \to \infty}`| $\gets$ | `$\gets$` |
 | $\frac{3}{8}$ |`$frac{3}{8}$`| $\to$ | `$\to$` |
 | $\mathring{U}$ |`$\mathring{U}$`| $\times$ | `$\times$` |
@@ -30,15 +31,22 @@
 | $\oint$ |`$\oint$`| $\in$ | `$\in$` |
 | $\infty$ |`$\infty$`| $\notin$ | `$\notin$` |
 | $\pm$ |`$\pm$`| $\subset$ | `$\subset$` |
+|  || $\subseteq$ | `\subseteq` |
 | $\overline{x}$ |`$\overline{x}$`| $\subsetneqq$ | `$\ubsetneqq$` |
 | $\underline{x}$ |`$\underline{x}$`| $\supset$ | `$\supset$` |
 | $\hat{A}$ |`$\hat{y}$`| $\cap$ | `$\cap$` |
 | $\widehat{A}$ |`$\widehat{A}$`| $\cup$ | `$\cup$` |
 | $\tilde{A}$ |`$\tilde{A}$`| $\mathbb{R}$ | `$\mathbb{R}$` |
-| $\widetilde{A}$ |`$\widetilde{A}$`| $\emptyset$ | `$\emptyset$` |
+| $\widetilde{A}$ |`$\widetilde{A}$`| $\empty$ | `$\empty$` |
+|  || $\varnothing$ | `\varnothing` |
 | $\dot{U}$ |`\dot{U}`| $\ang$ | `$\ang$` |
 | $\ddot{U}$ |`\ddot{U}`| $\forall$ | `\forall` |
 | $\bar{x}$ |`\bar{x}`| $\exists$ | `\exists` |
+| $\ll$ |`\ll`| $\oplus$ | `\oplus` |
+| $\gg$ |`\gg`| $\otimes$ | `\otimes` |
+| $\sim$ |`\sim`| $\ominus$ | `\ominus` |
+| $\simeq$ |`\simeq`| $\oslash$ | `\oslash` |
+| $\neq$ |`\neq`| $\bigcirc$ | `\bigcirc` |
 
 ### 矩阵与行列式
 

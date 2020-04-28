@@ -36,7 +36,7 @@ q为p的必要条件，1 $\to$ 0 $\Leftrightarrow$ 0
 
 #### 2.1 等值式
 
-##### 等值试模式
+##### 等值式模式
 
 |      定律      |                                    |                                   |
 | :------------: | :--------------------------------: | :-------------------------------: |
@@ -119,8 +119,8 @@ q为p的必要条件，1 $\to$ 0 $\Leftrightarrow$ 0
 3. 推理定理
 	 - **前提引入规则**：引入前提
 	 - **结论引入规则**：将所得结论作为后续证明的前提
-	 - **置换规则**：运用2类等值公式置换
-	 - **推理定理**9条
+	 - **置换规则**：运用两类等值公式置换
+	 - **推理定理**九条
 
 #### 归谬法
 
@@ -154,11 +154,11 @@ $$
 
 ##### 全称量词
 
-$\forall$，后接 $\vee$ (条件连接词) $~~~\forall(P(x)\to Q(x))$
+$\forall$，后接 $\to$ (条件连接词) $~~~\forall(P(x)\to Q(x))$
 
 ##### 存在量词
 
-$\exists$，后接 $\to$ (合取连接词) $~\exist (P(x)\wedge Q(x))$
+$\exists$，后接 $\wedge$ (合取连接词) $~\exist (P(x)\wedge Q(x))$
 
 #### 量词的辖域
 
@@ -172,43 +172,61 @@ $\exists$，后接 $\to$ (合取连接词) $~\exist (P(x)\wedge Q(x))$
 
 ##### 1. 命题逻辑中的等价式的代换实例
 
+命题逻辑等价式转换而来
+
 ##### 2. 量词否定转移
 
-$\lnot \forall x P(x) \Leftrightarrow \exists x \lnot P(x)$
-
-$\lnot \exists x P(x) \Leftrightarrow \forall x \lnot P(x)$
+$$
+\lnot \forall x P(x) \Leftrightarrow \exists x \lnot P(x)
+$$
+$$
+\lnot \exists x P(x) \Leftrightarrow \forall x \lnot P(x)
+$$
 
 ##### 3. 量词辖域的收缩和扩张
 
 (1)
 
-$\forall x(A(x)\vee B) \Leftrightarrow \forall xA(x) \vee B$
-
-$\forall x(A(x)\wedge B) \Leftrightarrow \forall xA(x) \wedge B$
-
-$\forall x(A(x)\to B) \Leftrightarrow \exists xA(x) \to B$
-
-$\forall x(B \to A(x)) \Leftrightarrow B \to \forall xA(x)$
+$$
+\forall x(A(x)\vee B) \Leftrightarrow \forall xA(x) \vee B
+$$
+$$
+\forall x(A(x)\wedge B) \Leftrightarrow \forall xA(x) \wedge B
+$$
+$$
+\forall x(A(x)\to B) \Leftrightarrow \exists xA(x) \to B
+$$
+$$
+\forall x(B \to A(x)) \Leftrightarrow B \to \forall xA(x)
+$$
 
 (2)
 
-$\exists x(A(x)\vee B) \Leftrightarrow \exists xA(x) \vee B$
-
-$\exists x(A(x)\wedge B) \Leftrightarrow \exists xA(x) \wedge B$
-
-$\exists x(A(x)\to B) \Leftrightarrow \forall xA(x) \to B$
-
-$\exists x(B \to A(x)) \Leftrightarrow B \to \exists xA(x)$
+$$
+\exists x(A(x)\vee B) \Leftrightarrow \exists xA(x) \vee B
+$$
+$$
+\exists x(A(x)\wedge B) \Leftrightarrow \exists xA(x) \wedge B
+$$
+$$
+\exists x(A(x)\to B) \Leftrightarrow \forall xA(x) \to B
+$$
+$$
+\exists x(B \to A(x)) \Leftrightarrow B \to \exists xA(x)
+$$
 
 ##### 4. 变量分配律
 
-$\forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x) \wedge \forall xB(x)$
-
-$\exists x(A(x)\vee B(x))\Leftrightarrow \exists xA(x) \vee \exists xB(x)$
+$$
+\forall x(A(x)\wedge B(x))\Leftrightarrow \forall xA(x) \wedge \forall xB(x)
+$$
+$$
+\exists x(A(x)\vee B(x))\Leftrightarrow \exists xA(x) \vee \exists xB(x)
+$$
 
 #### 前束范式
 
-将量词提到最前面
+将**量词**提到最前面
 
 #### 谓词演算的推理理论
 
@@ -241,6 +259,72 @@ $$
 ## 第二部分 集合论
 
 ### 第六章 集合代数
+
+#### 集合的基本运算
+
+- 并运算：
+
+$$
+A\cup B = \{x|x \in A \vee x \in B\}
+$$
+
+- 交运算：
+
+$$
+A\cap B = \{x|x \in A \wedge x \in B\}
+$$
+
+- 差运算：
+
+$$
+A-B = \{x|x \in A \wedge x \notin B\}
+$$
+
+- 对称差：
+
+$$
+A \oplus B = \{x| (x \in A \wedge x \notin B) \vee (x \in B \wedge x \notin A)\}
+$$
+
+- 幂集：
+
+$$
+P(A) = \{x|x \subseteq A \}
+$$
+
+$$
+P(\varnothing)=2^0~~~P(\{\varnothing\})=2^1~~~P(\varnothing, \{\varnothing\})=2^2
+$$
+
+#### 集合相等的证明
+
+| 定律   |                                                  |
+|:------:|:------------------------------------------------:|
+| 摩根律 | $\sim (A \cup B) = \sim A \cap \sim B$           |
+| 摩根律 | $\sim (A \cap B) = \sim A \cup \sim B$           |
+| 分配律 | $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ |
+| 分配律 | $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ |
+| 吸收律 | $A \cup (A \cap B) = A$                          |
+| 吸收律 | $A \cap (A \cup B) = A$                          |
+| 补律   | $A \cap \sim A = \varnothing$                    |
+| 补律   | $A \cup \sim A = E$                              |
+| 集合律 | $A \cup (B \cup C) = (A \cup B) \cup C$          |
+| 集合律 | $A \cap (B \cap C) = (A \cap B) \cap C$          |
+| 恒等律 | $A \cup \varnothing = A$                         |
+| 恒等律 | $A \cap E = A$                                   |
+| 支配律 | $A \cup C = E$                                   |
+| 支配律 | $A \cap \varnothing = \varnothing $              |
+| 幂等律 | $A \cup A =A$                                    |
+| 幂等律 | $A \cap A = a$                                   |
+| 双否律 | $\sim(\sim A) = A$                               |
+| 交换律 | $A \cup B = B \cup A $                           |
+| 交换律 | $A \cap B = B \cap A$                            |
+
+#### 包含排斥原理
+
+$$
+|A \cup B|=|A|+|B|-|A \cap B|
+$$
 
 ### 第七章 二元关系
 

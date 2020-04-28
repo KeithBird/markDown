@@ -432,6 +432,10 @@ typedef struct{
 
 [KMP](https://mp.weixin.qq.com/s/kCjRuY6ygYJWWX5HPVLa5A)
 
+#### Next的求法
+
+前缀后缀的最大公共元素长度
+
 ## 第六章 Array(数组)
 
 ### 数组
@@ -524,8 +528,7 @@ typedef struct GLNode{
 
 #### 混合表示
 
-
-## 第七章(Tree)
+## 第七章 Tree(树)
 
 - 递归方法是树结构算法的基本特点
 
@@ -614,17 +617,6 @@ m(m≥0)棵不相交的树的集合称为森林
 - 树中的结点数等于所有结点的度数加1
 - 度为 $d$ 的树中第 $i$ 层上至多$d^{~i-1}$个结点
 - 具有 $n$ 个结点的 $d$ 叉树的最小深度为 $log_d[n(d-1)+1]$
-
-### 二叉树
-
-#### 满二叉树
-
-一棵深度为 $k$ 且有 $2^{k-1}$ 个结点的二叉树
-
-#### 完全二叉树
-
-前n-1层是满的，
-但最底层允许在右边缺少连续若干个结点
 
 ### 树的存储结构
 
@@ -721,4 +713,472 @@ struct PCTNode{
 	struct PCTNode *child[MAX_SON_SIZE];
 }PCTNode,*PCTree;
 ```
+
+### 树的基本操作
+
+#### 树的创建
+
+在树的生成算法中，需要设置两个栈
+
+一个用来存储**指向根结点**的指针，以便孩子结点向双亲结点链接之用
+
+一个用来存储待**链接的孩子结点**的序号，以便能正确地链接到双亲结点的指针域
+
+若这两个栈分别用stack和d表示，stack和d栈的深度不会大于整个树的深度
+
+```c++
+# define MS 10   // 栈空间的大小
+void CreateTree(CTree &T,char *S){
+	CTree stack[MS],p;
+	int i=0,d[MS],top=-1;
+	T=NULL;
+	
+	while(S[i]){ 
+		switch(S[i]){  
+			case ' ': break;
+			case '(': top++;stack[top]=p; d[top]=0;break;
+			case ')': top--;break;  
+			case ',': d[top]++;break;
+
+		default: if(!(p=(CTree)malloc(sizeof(CTNode)))) exit(1);
+		
+		p->data=S[i];
+
+		for(int i=0; i<MAX_SON_SIZE; i++)
+			p->child[i]=NULL; 
+		
+		if(!T) T=p;
+		else stack[top]->child[d[top]]=p;
+		}
+	i++;
+	}
+}// CreateTree
+```
+
+#### 树的遍历
+
+##### 遍历的类型
+
+- 先序遍历 DLR ：**先根再左后右**
+- 中序遍历 LDR ：**先左再根后右**
+- 后序遍历 LRD ：**先左再右后根**
+- 层序遍历：从根结点开始，从上至下逐层遍历
+
+##### 遍历的实现
+
+```c++
+void PreOrderTree(CTree T,void Visit(TElemType)){
+    if(T) {
+        Visit(T->data);                         
+        for(int i=0;i<MAX_SON_SIZE;i++)
+            PreOrderTree(T->child[i],Visit);  
+    }	
+}// PreOrderTree
+```
+
+```c++
+void PostOrderTree(CTree T,void Visit(TElemType)) {
+    if(T) {     
+        for(int i=0;i<MAX_SON_SIZE;i++)
+            PostOrderTree(T->child[i],Visit);  
+        Visit(T->data);   
+     }
+}// PostOrderTree
+```
+
+```c++
+void LevelOrderTree(CTree T,void Visit(TElemType)) {    
+    SqQueue Q;                           
+    CTree p;
+    InitQueue_Sq(Q,MAX_TREE_SIZE,10);
+    
+    if(T) EnQueue_Sq(Q,T);
+    
+    while(!QueueEmpty_Sq(Q)) {   
+        DeQueue_Sq(Q,p);                
+        Visit(p->data);                   
+        for(int i=0;i<MAX_SON_SIZE;i++) 
+            if(p->child[i]) EnQueue_Sq(Q,p->child[i]);
+     }  
+}// LevelOrderTree
+
+```
+
+### 二叉树
+
+#### 满二叉树
+
+一棵深度为 $k$ 且有 $2^{k-1}$ 个结点的二叉树
+
+#### 完全二叉树
+
+前n-1层是满的，
+但允许在**最底层右边缺少**连续若干个结点
+
+#### 序列确定树
+
+由二叉树的**前序序列**和**中序序列**，或**后序序列**和**中序序列**均能唯一地确定一棵二叉树
+
+1. 后序序列的最后为根节点
+2. 中序序列根节点的左边为左子孙，右边同理
+3. 在后序序列中找到左右子孙的根节点，递归
+
+#### 二叉链表
+
+```c++
+typedef struct BiTNode { 
+    TElemType data; 
+    struct BiTNode *lchild;                    
+    struct BiTNode *rchild;                    
+}BiTNode,*BiTree;
+
+```
+
+#### 中序遍历
+
+```c++
+void InOrderBiTree(BiTree BT,void Visit(TElemType)) {   
+    if(BT) {   
+        InOrderBiTree(BT->lchild,Visit);       
+        Visit(BT->data);                      
+        InOrderBiTree(BT->rchild,Visit);      
+    }
+}// InOrderBiTree
+```
+
+#### 线索二叉树
+
+在n个结点的二叉链表中，必定存在n+1个空指针域
+
+如果能利用这n+1个空链域，使它们分别指向某种遍历次序的前驱或后续
+
+这种指向结点前驱和后继的指针叫做**线索**
+
+##### 结点实现
+
+```c++
+typedef struct BiThrNode {
+    TElemType data;               
+    BiThrNode *lchild,*rchild;    
+    unsigned short LTag:1;        
+    unsigned short RTag:1;        
+}BiThrNode, *BiThrTree;
+
+```
+
+若 LTag=0, lchild域指向左孩子；若 LTag=1, lchild域指向其前驱
+
+![线索二叉树](datasStructure.assets/线索二叉树.png)
+
+#### 树和二叉树的转换
+
+##### 树 => 二叉树
+
+1. **连兄**：在兄弟结点间添加虚线
+2. **去子**：任一结点仅除保留它与最左孩子的连线
+3. **实顺虚逆**：实线向左转45°，虚线向右转45°
+
+##### 二叉树 => 树
+
+1. **连子**：连接右孩子的右孩子及其递归
+2. **去右**：删去所有右链
+3. **规整**
+
+##### 森林 => 二叉树
+
+1. 先将森林中的每棵树转化成二叉树
+2. 将后一棵树当作前一棵树的根节点的**右子树**粘接
+
+### 霍夫曼树
+
+#### 编码类型
+
+##### 等长编码
+
+所有编码长度相同
+
+##### 变长编码
+
+用最短的编码来表示出现频率最高的字符
+
+##### 无前缀编码
+
+若使用不等长编码，则要求所有字符编码与所有前缀不同
+
+也就是任一叶子结点都不可能是其他叶子结点的父节点
+
+##### 霍夫曼编码
+
+将字符集中的每一个字符当作叶子节点编码的二叉树
+
+将字符出现的频率作为权重构造**霍夫曼树**
+
+将左右分支分别用 0 和 1 编码得到**霍夫曼编码**
+
+###### WPL
+
+树中所有叶子结点的**带权路径长度**之和
+
+![霍夫曼树](datasStructure.assets/霍夫曼树.png)
+
+WPL = 2 * (6+8) + 3 * (2+2+3+4)
+
+#### 霍夫曼树的结点结构
+
+```c++
+typedef struct {
+    int flag;				//上树标记
+    int weight;  			//结点的权值
+    int parent, lch, rch;    
+}HTNode,*huffTree;
+```
+
+#### 霍夫曼编码的数据元素结构
+
+```cpp
+struct Code {
+    int bit[MaxBit];	//叶结点的哈夫曼编码
+    int start;			//编码的起始下标
+    int weight;			//字符的权值
+};
+```
+
+#### 霍夫曼树的创建
+
+1. 找出目前最新的两个节点
+2. 合并节点形成新根，为新根赋权
+3. 递归
+
+```c++
+void creatHaffman(int weight[], int n, HTNode haffTree[]) {
+//建立叶结点个数为n权值为weight的哈夫曼树haffTree
+    
+    int j, m1, m2, p1, p2;
+    
+    for (int i = 0; i<2 * n - 1; i++){
+    //哈夫曼树haffTree初始化。n个叶结点的哈夫曼树共有2n-1个结点
+        
+        if (i<n)	//叶结点
+            haffTree[i].weight = weight[i];
+        else		//父节点
+            haffTree[i].weight = 0;
+        
+        haffTree[i].parent = 0;
+        haffTree[i].flag = 0;
+        haffTree[i].lch = -1;
+        haffTree[i].rch = -1;
+    }
+    
+    for (int i = 0; i < n-1; i++) {
+    //构造哈夫曼树haffTree的n-1个非叶结点
+        
+        m1 = m2 = MaxValue;	//Maxvalue=10e8;(正无穷)
+        p1 = p2 = 0;		//保存最小的两个值对应的下标
+ 
+        for (j = 0; j < n+i; j++) {
+        //找出最小的二个值
+            
+            if (haffTree[j].weight < m1 && haffTree[j].flag == 0) {
+                
+                m2 = m1;
+                m1 = haffTree[j].weight;
+                p2 = p1;
+                p1 = j;
+            }
+            else if(haffTree[j].weight < m2 && haffTree[j].flag == 0) {
+                
+                m2 = haffTree[j].weight;
+                p2 = j;
+            }
+        }
+        
+        //将找出的两棵权值最小的子树合并为一棵子树
+        haffTree[p1].parent = n + i;
+        haffTree[p2].parent = n + i;
+        haffTree[n + i].lch = p1;
+        haffTree[n + i].rch = p2;
+        haffTree[p1].flag = 1;
+        haffTree[p2].flag = 1;
+        haffTree[n + i].weight = haffTree[p1].weight + haffTree[p2].weight;
+    }
+}
+```
+
+#### 哈夫曼编码的创建
+
+```c++
+void HaffmanCode(HTNode haffTree[], int n, Code haffCode[]) {
+//由n个结点的哈夫曼树haffTree构造哈夫曼编码haffCode
+    
+    Code *cd = new Code;
+    int child, parent;
+        
+    for (int i = 0; i<n; i++) {
+    //求n个叶结点的哈夫曼编码
+
+        cd->start = 0;						//修改从0开始计数
+        cd->weight = haffTree[i].weight;	//取得编码对应权值的字符
+        child = i;
+        parent = haffTree[child].parent;
+        
+        
+        while (parent != 0) {
+        //由叶结点向上直到根结点
+            
+            if (haffTree[parent].lch == child)
+                cd->bit[cd->start] = 0;//左孩子结点编码0
+            else (haffTree[parent].rch == child)
+                cd->bit[cd->start] = 1;//右孩子结点编码1
+                                             
+            cd->start++;	//编码自增
+            child = parent;
+            parent = haffTree[child].parent;
+        }
+        
+        //保存叶结点的编码和不等长编码的起始位
+        for (int j = cd->start - 1; j >= 0; j--)
+            
+        	//重新修改编码，从根节点开始计数
+        	haffCode[i].bit[cd->start - j - 1] = cd->bit[j];
+ 
+        haffCode[i].start = cd->start;
+        haffCode[i].weight = cd->weight;//保存编码对应的权值
+    }
+}
+```
+
+## 第八章 Graph(图)
+
+### 图的定义
+
+##### 回路或环
+
+第一个顶点和最后一个顶点相同的路径
+
+##### 网络
+
+带权值的图
+
+##### 稀疏图
+
+顶点很多而边很少的图
+
+##### 稠密图
+
+顶点多边也多的图
+
+##### 完全图
+
+对于给定的一组顶点，顶点间都存在边
+
+##### 连通图
+
+任意两顶点之间都是连通的
+
+##### 简单路径
+
+V 到 W 之间所有顶点都不同（没有形成回路）
+
+##### 连通分量
+
+极大连通子图
+
+1. 极大顶点数：再加任何1个顶点都不再连通
+
+2. 极大边数：包含子图中所有顶点的所有边
+
+##### 强连通
+
+有向图两顶点之间存在双向路径
+
+##### 生成树
+
+极小连通子图。包含图的所有n个结点，但只含图的n-1条边。在生成树中添加一条边之后，必定会形成回路或环
+
+### 图的储存
+
+#### 邻接矩阵
+
+邻接矩阵 G[N][N]——N 个顶点从 0 到 N-1 编号
+
+##### 出(入)度
+
+从改点发出的边数
+
+无向图的度：对应行或列非零元素个数
+
+有向图的出度：对应行非零元素个数
+
+有向图的入度：对应列非零元素个数
+
+#### 优点
+
+直观、简单、好理解
+
+方便检查任意一对顶点间是否存在边
+
+方便找任一顶点的所有邻接点
+
+方便计算任一顶点的度
+
+#### 缺点
+
+浪费空间——存稀疏图
+
+浪费时间——统计稀疏图的边
+
+#### 邻接表
+
+邻接表：G[N] 为指针数组，对应矩阵每行一个链表，只存非 0 元素
+
+##### 特点
+
+方便找任一顶点的所有邻接顶点
+
+节省稀疏图的空间
+
+需要 N 个头指针 + 2E 个结点（每个结点至少 2 个域）
+
+对于是否方便计算任一顶点的度
+
+有向图：只能计算出度
+
+不方便检查任意一对顶点间是否存在边
+
+### 图的遍历
+
+#### DFS
+
+```c++
+void DFS ( Vertex V ){
+    visited[ V ] = true;
+    for ( V 的每个邻接点 W )
+        if( !visited[ W ])
+            DFS( W );
+}
+```
+
+#### BFS
+
+```c++
+void BFS( Vertex V ){
+    queue<Vertex> q;
+    visited[V] = true;
+    q.push(V);
+    
+	while(!q.empty()){
+        V = q.front(); 
+		q.pop();
+
+        for( V 的每个邻接点 W ){
+			if( !visited[ W ]){
+				visited[W] = true;
+            	q.push(W);
+            }
+        }
+    }
+}
+```
+
+
 

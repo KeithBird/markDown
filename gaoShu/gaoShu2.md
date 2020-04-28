@@ -221,7 +221,7 @@ $$
 ##### 领域
 
 $$
-U(P_0)=U(P_0,\delta)={P (|)0<|PP_0|<\delta}
+U(P_0)=U(P_0,\delta)={(P~\big|~0<|PP_0|<\delta)}
 $$
 
 ##### 边界点
@@ -487,6 +487,12 @@ $$
 | $AC-B^2<0$ |  无极值  |
 | $AC-B^2=0$ | 无法判断 |
 
+###### 3. 求极值
+
+$A > 0$：极小值
+
+$A < 0$：极大值
+
 ##### 最值
 
 ###### 1. 求出两个偏导为0的解
@@ -531,9 +537,9 @@ $\varphi(x, y)=0$
 $$
 \left\{
   \begin{array}{c}
-  F_x&=0\\
-  F_y&=0\\
-  \varphi(x, y)&=0
+    F_x&=0\\
+    F_y&=0\\
+    \varphi(x, y)&=0
   \end{array}
 \right.
 $$
@@ -545,19 +551,153 @@ $$
 
 #### 二重积分的概念
 
+底面积的二重积分是体积(函数连续)
+
+$$
+\lim \limits_{\lambda \to 0}\sum \limits_{i=1}^n 
+f(x_i, y_i)\Delta \sigma_i
+=\iint \limits_{Dxoy} f(x, y) d\sigma
+$$
+
 #### 二重积分的性质
+
+1. 保号性
+
+$$
+f(x,y) \le g(x,y) \Rightarrow
+\iint \limits_Df(x, y)d\sigma \le \iint \limits_Dg(x,y)d\sigma
+$$
+2. 保号性的特殊情形
+
+$$
+\bigg|\iint \limits_Df(x, y)d\sigma\bigg| \le
+\iint \limits_D | f(x, y) | d\sigma
+$$
+3. 介值定理
+
+$$
+\frac{1}{\sigma} \iint \limits_D f(s, y) d\sigma
+=f(\xi, \eta)
+$$
 
 ### 二重积分的计算
 
 #### 直角坐标
 
+##### $\int dx \int dy$
+
+1. 把未知数集中到后面
+$$
+\int_a^b xdx \int_c^d ydy
+\Rightarrow \int_a^b \int_c^d xydy dx
+$$
+
+2. 依次向前积分
+$$
+\int_a^b \int_c^d xydy dx
+\Rightarrow \int_a^b dx \big(\frac{1}{2} x y^2\big)\bigg|^d_c
+$$
+
+##### 交换积分次序
+
+1. 把未知数集中到后面
+
+2. 根据上下限，画出积分区域
+
+3. 在积分区域的函数里用自变量表示因变量
+
+4. 在重合部分不变的情况下，重新划分边界（注意y的边界是否随x变化）
+
+5. 重新赋值积分的上下界
+
+##### $\iint \limits_D d \sigma$
+
+1. 画出积分区域
+
+2. 列出边界方程
+
+3. 保留被积函数，将 $\sigma$ 改成 $dxdy$
+
+4. 根据第2步写出上下限
+
+5. 将边界为数字的放在最前面
+
 #### 极坐标
+
+$$
+x=\rho cos\theta~~~~~y=\rho sin\theta~~~~~dxdy=\rho \cdot d\theta d\rho
+$$
+
+##### 与圆有关的二重积分
+
+1. 将方程化为极坐标方程
+
+2. 作图，用 $\rho$ 和 $\theta$ 划定上下限
+
+3. 将边界为数字的放在最前面
+
+#### 积分区域对称的二重积分
+
+##### 若关于y对称(-x)
+
+$$
+\begin{align}
+
+f(-x,y)=-f(x,y)&\Rightarrow
+\iint \limits_D f(x, y) d\sigma = 0\\
+f(-x,y)=f(x,y) &\Rightarrow
+\iint \limits_D f(x, y) d\sigma =
+2\iint \limits_{\frac{D}{2}} f(x, y) d\sigma
+
+\end{align}
+$$
+
+##### 若关于x对称(-y)
+
+$$
+\begin{align}
+
+f(x,-y)=-f(x,y)&\Rightarrow
+\iint \limits_D f(x, y) d\sigma = 0\\
+f(x,-y)=f(x,y) &\Rightarrow
+\iint \limits_D f(x, y) d\sigma =
+2\iint \limits_{\frac{D}{2}} f(x, y) d\sigma
+
+\end{align}
+$$
+
+##### 若关于原点对称
+
+$$
+\begin{align}
+
+f(-x,-y)=-f(x,y)&\Rightarrow
+\iint \limits_D f(x, y) d\sigma = 0\\
+f(-x,-y)=f(x,y) &\Rightarrow
+\iint \limits_D f(x, y) d\sigma =
+2\iint \limits_{\frac{D}{2}} f(x, y) d\sigma
+
+\end{align}
+$$
 
 ### 三重积分
 
 #### 三重积分的概念
 
+体积元素的三重积分是体积
+
 #### 三重积分的计算
+
+![三重积分](gaoShu2.assets/三重积分.jpeg)
+
+1. 结合表，表示出 $\Omega$ ，
+并以 $z$ 为因变量列方程，表示出上下曲面
+
+2. 求解 $g(x,y) = \int_{下表面}^{上表面} f(x,y,z)dz$
+
+3. 求出 $\Omega$ 在 $xoy$ 的投影 $D$
+
+4. $\iint \limits_D g(x,y) d\sigma$ 为所求
 
 ### 重积分的应用
 
@@ -569,11 +709,138 @@ $$
 
 #### 引力
 
+## 第十一章 曲线积分与曲面积分
+
+### 对弧长的曲线积分
+
+#### 概念与性质
+
+被积函数是曲线的线密度
+
+积分是曲线的质量
+
+#### 计算方法
+
+##### 弧度相关
+
+$$
+\int \limits_L f(x, y) ds
+=\int_\alpha^\beta f[x(\theta),y(\theta)] \cdot
+\sqrt{[x'(\theta)]^2 + [y'(\theta)]^2} d\theta
+$$
+
+##### 可以用x表示y
+
+$$
+\int \limits_L f(x, y) ds
+=\int_a^b f[x,y(x)] \cdot
+\sqrt{1^2 + [y'(x)]^2} dx
+$$
+
+##### 对称
+
+1. $\int \limits_ L 1 ds = L的长度$
+
+2. L 关于 x 轴对称
+
+$$
+\begin{align}
+
+f(-x,y)=-f(x,y)&\Rightarrow
+\int \limits_L f(x, y) ds = 0\\
+f(-x,y)=f(x,y) &\Rightarrow
+\int \limits_L f(x, y) ds =
+2\int \limits_{\frac{L}{2}} f(x, y) ds
+
+\end{align}
+$$
+
+2. L 关于 y 轴对称
+
+$$
+\begin{align}
+
+f(x,-y)=-f(x,y)&\Rightarrow
+\int \limits_L f(x, y) ds = 0\\
+f(x,-y)=f(x,y) &\Rightarrow
+\int \limits_L f(x, y) ds =
+2\int \limits_{\frac{L}{2}} f(x, y) ds
+
+\end{align}
+$$
+
+### 对坐标的曲线积分
+
+$$
+\int \limits_L P(x, y)dx + Q(x, y)dy
+$$
+
+#### 概念与性质
+
+被积函数为每个点的力
+
+积分为变力沿曲线所做的功
+
+
+#### 计算方法
+
+##### 弧度相关
+
+$$
+\int \limits_L P(x, y)dx + Q(x,y)dy
+=\int^\beta_\alpha(P[x(\theta), y(\theta)]\cdot x'(\theta) +
+Q([x(\theta),y(\theta)]\cdot y'(\theta))dt
+$$
+
+##### 可以用x表示y
+
+$$
+\int \limits_LP(x,y)dx + Q(x,y)dy
+= \int^b_a(P[x,y(x)]+Q[x,y(x)]\cdot y'(x))dx
+$$
+
+##### 利用性质
+
+当 $\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}$：积分与路径无关
 
 
 
+当L为正向(逆时针)无交叉闭曲线，且P、Q在L围成的区域内有连续的一阶偏导：
+$$
+\oint \limits_L Pdx + Qdy = \iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy
+$$
 
 
+当L为逆向(顺时针)无交叉闭曲线，且P、Q在L围成的区域内有连续的一阶偏导：
+$$
+\oint \limits_L Pdx + Qdy = -\iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy
+$$
 
 
+### 两类曲线积分的联系
 
+### 格林公式
+
+#### 概念
+
+#### 平面上曲线积分与路径无关的条件
+
+#### 二元函数的全微分求积
+
+### 对面积的曲面积分
+
+#### 概念与性质
+
+#### 计算方法
+
+### 对坐标的曲面积分
+
+#### 概念与性质
+
+#### 计算方法
+
+### 两类曲线积分的联系
+
+### 高斯公式
+
+### 斯托克斯公式

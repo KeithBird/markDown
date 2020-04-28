@@ -320,15 +320,13 @@ $$
 
 ## 第四章 刚体的转动
 
-### 力矩和角动量
-
-#### 角动量
+### 角动量
 
 $$
-\vec L = \vec r \times \vec p=mvr=m\omega r^2=J\omega
+\vec L = \vec r \times \vec p=m\vec{v}\vec{r}=m\vec{\omega} \vec{r}^2=J\vec{\omega}
 $$
 
-#### 力矩
+### 力矩
 
 力的方向逆时针为正
 
@@ -336,17 +334,17 @@ $$
 \vec M = \vec r \times \vec F = \frac{d\vec L}{dt}
 $$
 $$
-{M}=\sum \limits_{i=1}^n(F_iR_i)\\
+\vec{M}=\sum \limits_{i=1}^n(\vec{F}_i\vec{R}_i)\\
 $$
 
 ### 转动惯量
 
 $$
-J=mr^2
+J=mr^2~(末端物体)
 $$
 
 $$
-M=\frac{L}{t}=J\alpha
+\vec M=\frac{\vec L}{t}=J\vec\alpha
 $$
 
 | 物体形状 | 转轴位置           | 转动惯量                    |
@@ -365,16 +363,25 @@ $$
 系统所受力都**与转轴平行**或**经过转动中心**
 
 $$
-L = mr_1v_1(质点)+J_1\omega_1(转动体)= mr_2v_2+J_2\omega_2
+\vec L = m\vec{r}_1\vec{v}_1(质点)+J_1\vec{\omega}_1(转动体)
+= m\vec{r}_2\vec{v}_2+J_2\vec{\omega}_2
+$$
+
+### 力矩对刚体做的功
+$$
+A = \int_{\theta_1}^{\theta_2} Md\theta
+$$
+
+### 转动动能
+$$
+E_k = \frac{1}{2}J\omega^2
 $$
 
 ## 第五章 机械振动与机械波
 
 ### 震动
 
-#### 简谐振动
-
-##### 文字描述求初相
+#### 文字描述求初相
 
 1. 以振幅 $A$为半径做圆
 
@@ -386,7 +393,7 @@ $$
 
 5. 连接圆心，求 $\varphi$
 
-##### 图像描述求初相
+#### 图像描述求初相
 
 1. 以振幅 $A$ 为半径做圆
 
@@ -398,7 +405,7 @@ $$
 
 5. 连接圆心，求 $\varphi$
 
-##### 求简谐震动方程
+#### 求简谐震动方程
 
 将初相 $\varphi$ 和振幅 $A$ 代入方程求出 $\omega$
 
@@ -406,7 +413,7 @@ $$
 \omega = \frac{2\pi}{T}=2\pi f
 $$
 
-##### 求运动时间
+#### 求运动时间
 
 1. 作图
 
@@ -416,7 +423,7 @@ $$
 
 4. $t = \theta / \omega$
 
-##### 根据弹簧参数求方程
+#### 根据弹簧参数求震动方程
 
 1. 求出 $A$ 和 $\omega$
 $$
@@ -426,6 +433,48 @@ $$
 2. 代入方程求出可能的 $\varphi$，作图表示出两个 $\varphi$
 
 3. 根据**运动方向**和圆的方向确定待求点
+
+#### 简谐运动的能量
+
+##### 机械能
+$$
+E = \frac{1}{2}kA^2
+$$
+
+##### 动能
+$$
+E_k = \frac{1}{2}kA^2sin^2(\omega t + \varphi)
+$$
+
+##### 势能
+$$
+E_p = \frac{1}{2}kA^2cos^2(\omega t + \varphi)
+$$
+
+##### 平均动能和平均势能
+
+$$
+\overline{E_k} = \overline{E_p} = \frac{1}{4}kA^2
+$$
+
+#### 震动的合成 $(\omega_1 = \omega_2)$
+$$
+A = \sqrt{{A_1}^2 + {A_2}^2 + 2A_1A_2cos(\varphi_2 - \varphi_1)}
+$$
+$$
+\varphi = arctan \frac{A_1sin\varphi_1+A_2sin\varphi_2}
+{A_1cos\varphi_1+A_2cos\varphi_2}
+$$
+
+#### 震动的拍频 $(\omega_1 \neq \omega_2)$
+$$
+\Delta f = \frac{\omega_1}{2 \pi} - \frac{\omega_2}{2 \pi}
+$$
+
+#### 单摆频率
+$$
+\omega = \sqrt{\frac{g}{l}}~~~~~T=\frac{2\pi}{\omega}~~~~~f=\frac{\omega}{2\pi}
+$$
 
 ### 波动
 
