@@ -26,6 +26,7 @@
 | $\frac{3}{8}$ |`$frac{3}{8}$`| $\to$ | `$\to$` |
 | $\mathring{U}$ |`$\mathring{U}$`| $\times$ | `$\times$` |
 | $\partial$ |`$\partial$`| $\cdot$ | `$\cdot$` |
+|  || $\circ$ | `\circ` |
 | $\bigg|$ |`$\bigg|$`| $\div $ | `$\div$` |
 | $\approx$ |`$\approx$`| $\mid$ | `$\mid$` |
 | $\oint$ |`$\oint$`| $\in$ | `$\in$` |

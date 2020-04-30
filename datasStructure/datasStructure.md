@@ -1169,16 +1169,104 @@ void BFS( Vertex V ){
 	while(!q.empty()){
         V = q.front(); 
 		q.pop();
-
-        for( V 的每个邻接点 W ){
-			if( !visited[ W ]){
-				visited[W] = true;
-            	q.push(W);
+	
+	for( V 的每个邻接点 W ) {
+		if( !visited[ W ]) {
+			visited[W] = true;
+			q.push(W);
             }
         }
     }
 }
 ```
 
+### 最短路径
 
+#### 定义
 
+##### 最短路径（ShorttestPath）
+
+在网络（带权图）中，两个不同顶点之间的所有路径中，**边的权值**之和最小的那一条路径
+
+##### 最短路径问题
+
+从某固定源点出发，求其到**所有其他顶点**的最短路径
+
+##### 多源最短路径问题
+
+求**任意两顶点**间的最短路径
+
+####  无权图的单源最短路
+
+BFS
+
+```c++
+void Unweighted(Vertex s){
+    queue<Vertex> q;
+    q.push(s);	//压入源点
+    while(!q.empty()){
+        
+        v = q.pop();
+        for( V 的每个邻接点 W){
+            
+            dist[W] = dist[v] + 1; 	// 当前距离上一距离 + 1
+            path[W] = v;  			// s 到 w 的必经顶点就是前一个顶点 v
+            q.push(W);
+        }
+    }
+}
+```
+
+T = O ( V+E )
+
+#### 有权图的单源最短路
+
+##### Dijkstra
+
+1. 令 S = 源点 + 已经确定了最短路径的顶点 vi
+
+2. 对任一未收录的顶点 v，定义 `dist[v]` 为仅经过 **S 中的顶点**到 v 的最短路径长度
+
+3. 如果 v 的加入减小了 S 中 `dist[w]` 的值，则：
+
+	- v 和 w之间有边
+	- v 到 w 的间接路径未被 S 收入
+	- v 只能影响邻接点的 dist
+
+```c++
+dist[V] = 10e8;
+path[V] = -1;
+collected[V] = false;
+
+void Dijkstra( Vertex s ){
+    while(1){
+        V = 未收录顶点中dist最小值;
+        if( 这样的V不存在 ) break;
+        
+        collected[V] = true;
+        
+        for( V 的每个邻接点 W )
+            if( collected[W] == false )
+                if(dist[V] + E[V,W] < dist[W]){
+             		dist[W] = dist[V] + E[V,W];
+                    path[W] = V;
+         }
+    }
+}
+```
+
+###### 时间复杂度
+
+T = T(扫描未收录顶点中 `dist` 最小值) + T(更新 `dist[W]`)
+
+1. 直接扫描所有未收录顶点
+
+	- T = O(V^2^ + E) 
+
+	- 稠密图效果更好
+
+2. 将 dist 存在最小堆中 
+
+	- T = O(V * logV + E * logV)
+
+	- 稀疏图效果更好

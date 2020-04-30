@@ -328,6 +328,109 @@ $$
 
 ### 第七章 二元关系
 
+#### 笛卡尔积
+
+$$
+A \times B = \{<x, y> | x \in A \wedge y \in B \}
+$$
+
+##### A 到 B 的关系
+
+$A \times B$ 的任一子集
+
+##### A 上的关系
+
+$A \times A$ 的任一子集
+
+##### A 上的特殊关系
+
+空关系：$\varnothing$
+
+全域关系 $E_A$：$A \times A$ 的所有子集
+
+恒定关系 $I_A$：$\{<x, x> | x \in A \}$
+
+#### 关系的性质
+
+$ranR$：第二元 值域
+
+$domR$：第一元 定义域
+
+$R^{-1}$：第一元与第二元交换
+
+$R^2 = R \circ R$：$\{<x, z> | <x, y> \in R~\wedge <y, z> \in R \}$
+
+##### R在A上自反
+
+$$
+\forall x(x \in A \to <x, x> \in R)
+$$
+
+##### R在A上反自反
+
+$$
+\forall x(x \in A \to <x, x> \notin R)
+$$
+
+##### R在A上对称
+
+$$
+\forall x \forall y (x, y \in A~\wedge<x, y> \in R \to  <y, x> \in R)
+$$
+
+##### R在A上反对称
+
+$$
+\forall x \forall y (x, y \in A~\wedge<x, y> \in R~\wedge <y, x> \in R
+\to  x=y)
+$$
+$$
+\forall x \forall y (x, y \in A~\wedge<x, y> \in R~\wedge x \neq y 
+\to <y, x> \notin R)
+$$
+
+##### R在A上传递
+
+$$
+\forall x \forall y \forall z(x, y, z \in A~\wedge<x, y> \in R 
+~\wedge <y, z> \in R \to <x, z> \in R)
+$$
+
+##### 自反闭包
+
+$$
+r(R) = R \cup I_A
+$$
+
+##### 对称闭包
+
+$$
+s(R) = R \cup R^{-1}
+$$
+
+##### 传递闭包 
+
+$$
+t(R) = R \cup R^2 \cup R^3 \cdots R^n(n = |A|)
+$$
+
+#### 等价关系和等价类
+
+##### 等价关系
+
+R 是非空集合 A上的关系，且 R 是自反、对称、传递
+
+若 $<x, y> \in R$，则称 x 等价于 y，记做 $x \sim y$
+
+##### 等价类
+
+R 是非空集合 A上的等价关系且 $x \in A$
+$$
+[x]_R = \{y|y \in A \wedge xRy(<x, y> \in R)\} = [y]_R
+$$
+
+19min 例5
+
 ### 第八章 函数
 
 ## 第三部分 代数结构

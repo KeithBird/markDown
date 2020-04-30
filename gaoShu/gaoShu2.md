@@ -715,6 +715,8 @@ $$
 
 #### 概念与性质
 
+被积函数为**标量**
+
 被积函数是曲线的线密度
 
 积分是曲线的质量
@@ -777,10 +779,11 @@ $$
 
 #### 概念与性质
 
+被积函数为**矢量**
+
 被积函数为每个点的力
 
 积分为变力沿曲线所做的功
-
 
 #### 计算方法
 
@@ -801,27 +804,29 @@ $$
 
 ##### 利用性质
 
-当 $\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}$：积分与路径无关
-
-
+当 $\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}$：
+积分与路径无关
 
 当L为正向(逆时针)无交叉闭曲线，且P、Q在L围成的区域内有连续的一阶偏导：
 $$
 \oint \limits_L Pdx + Qdy = \iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy
 $$
 
-
 当L为逆向(顺时针)无交叉闭曲线，且P、Q在L围成的区域内有连续的一阶偏导：
 $$
 \oint \limits_L Pdx + Qdy = -\iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy
 $$
 
-
-### 两类曲线积分的联系
+### 两类曲线积分的联系 ???
 
 ### 格林公式
 
 #### 概念
+
+$$
+\iint \limits_D(\frac{\partial Q}{\partial x}
+-\frac{\partial P}{\partial y}) dxdy = \oint_L Pdx + Qdy
+$$
 
 #### 平面上曲线积分与路径无关的条件
 
@@ -831,13 +836,66 @@ $$
 
 #### 概念与性质
 
+被积函数为**标量**
+
 #### 计算方法
+
+##### $\Sigma:z=z(x,y)$
+
+$$
+\iint \limits_{\Sigma} f(x,y,z) 
+=\iint \limits_D f[x,y,z(x,y)] 
+\cdot \sqrt{1 + (\frac{\partial z}{\partial x})^2
++ (\frac{\partial z}{\partial y})^2 } \cdot dx dy
+$$
+
+1. 画出 $\Sigma$ ，并表示出 $\Sigma$ 在 xoy 的投影 D
+
+2. 将 $\Sigma$ 表示成 z = z (x, y) 的形式
+
+3. 求出 $f(x, y, z(x, y))~,~\frac{\partial z}{\partial x}~,
+~\frac{\partial z}{\partial y}$
+
+4. 代入公式，求出答案
+
+##### $\Sigma:x=x(y, z)$
+
+由 z 转换
+
+##### $\Sigma:y=y(x, z)$
+
+由 z 转换
 
 ### 对坐标的曲面积分
 
 #### 概念与性质
 
+被积函数为**矢量**
+
 #### 计算方法
+
+##### $\iint \limits_{\Sigma} P(x, y, z) dydz$
+
+从 x 正半轴向原点看去：
+
+1. 曲面朝向眼睛
+$$
+\iint \limits_{\Sigma} P(x, y, z)dydz =
+\iint \limits_D P[x(y, z), y, z]dydz
+$$
+
+2. 曲面背离眼睛
+$$
+\iint \limits_{\Sigma} P(x, y, z)dydz =
+-\iint \limits_D P[x(y, z), y, z]dydz
+$$
+
+3. 曲面缩为曲线
+$$
+\iint \limits_{\Sigma} P(x, y, z)dydz = 0
+$$
+
+
 
 ### 两类曲线积分的联系
 
