@@ -418,9 +418,9 @@ $$
 
 ##### 等价关系
 
-R 是非空集合 A上的关系，且 R 是自反、对称、传递
+R 是非空集合 A 上的关系，且 R 是**自反、对称、传递**
 
-若 $<x, y> \in R$，则称 x 等价于 y，记做 $x \sim y$
+若 $<x, y> \in R$，则称 **x 等价于 y**，记做 $x \sim y$
 
 ##### 等价类
 
@@ -429,9 +429,38 @@ $$
 [x]_R = \{y|y \in A \wedge xRy(<x, y> \in R)\} = [y]_R
 $$
 
-19min 例5
+#### 偏序关系
+
+R 是非空集合 A 上的关系，且 R 是**自反、反对称、传递**，记作 $\preceq$
+
+A 和 A 上的偏序关系 R 一起叫做偏序集，记作 $(A , R)$
 
 ### 第八章 函数
+
+#### 定义和性质
+
+##### 函数的定义
+
+F 为二元关系，$ \forall x \in domF $ 都存在唯一的 $y \in ranF$ ，如有 xFy，记作 y = F(x) 
+
+##### 函数的性质
+
+$$
+F = G \Leftrightarrow F \subseteq G \wedge G \subseteq F
+$$
+
+所有由 A 到 B 的函数的集合：
+$$
+B^A = \{f~|~f: A \to B\}
+$$
+
+$$
+\varnothing^{\varnothing} = \{\varnothing\}\\
+B^{\varnothing} = \{\varnothing\}\\
+\varnothing^A = \varnothing
+$$
+
+
 
 ## 第三部分 代数结构
 

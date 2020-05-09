@@ -16,6 +16,8 @@
 | :-------: | :---------: | :-------: | :-------: |
 | $x_i$ | `x_i` | $\le$ | `\le` |
 |   $x^2$   |   `x^2`   | $\ge$ | `\ge` |
+|  |  | $\prec$ | `\prec` |
+|  |  | $\succ$ | `\succ` |
 | $\sqrt[123]{ x^2+y^2 }$ | `\sqrt[123]{ x^2+y^2 }` | $\perp$ | `perp` |
 | $\dots$ |`\dots`| $\vee$ | `$\vee$` |
 | $\cdots$ |`\cdots`|     $\wedge$      | `$wedge$` |
