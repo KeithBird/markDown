@@ -387,6 +387,10 @@ $$
 
 #### 震动的描述
 
+$$
+x = A cos(\omega t + \varphi)
+$$
+
 ##### 文字描述求初相
 
 1. 以振幅 $A$为半径做圆
@@ -443,6 +447,11 @@ $$
 #### 简谐运动的能量
 
 ##### 运动学特征
+
+$$
+x = A cos(\omega t + \varphi)
+$$
+
 $$
 v = -\omega Asin(\omega t + \varphi)~~~~~v_{max}=\omega A
 $$
@@ -451,12 +460,17 @@ $$
 a = -\omega^2 Acos(\omega t + \varphi)~~~~~a = -\omega^2 x
 $$
 
+$$
+a = \frac{d^2x}{dt^2}=-\omega x
+$$
+
 ##### 机械能
 $$
-E = \frac{1}{2}kA^2
+E = \frac{1}{2}kA^2=\frac{1}{2}mv^2 + \frac{1}{2}kx^2
 $$
 
 ##### 动能
+
 $$
 E_k = \frac{1}{2}mv^{2} = \frac{1}{2}kA^2sin^2(\omega t + \varphi)
 $$

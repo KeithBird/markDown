@@ -1,7 +1,5 @@
 # LaTeX
 
----
-
 [Typora中利用LaTeX 插入数学公式](https://blog.csdn.net/happyday_d/article/details/83715440)
 
 ### 希腊字母表
@@ -114,15 +112,32 @@ $$
 \end{align}
 $$
 
-
 ### 字符下标
 
 $$
 \max \limits_{a<x<b}\{f(x)\}
 $$
 
+## 流程图
 
+[MarkDown flow](https://www.jianshu.com/p/f28c94cf1204)
 
+```flow
+start=>start: 开始
+input=>inputoutput: 输入
+operation=>operation: 操作
+condition=>condition: 操作出错？
+output=>inputoutput: 输出
+error=>operation: 请重新输入
+end=>end: 结束
 
+start->input
+input->operation
+operation->condition
+condition(no,bottom)->output
+condition(yes)->error(top)->input
+output->end
+```
 
  
+
