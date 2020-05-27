@@ -2,6 +2,10 @@
 
 [DATA STRUCTURE](https://github.com/xiufengcheng/DATASTRUCTURE)
 
+## 目录
+
+[TOC]
+
 ## 第一章 概论
 
 ### 数据的逻辑结构
@@ -166,7 +170,7 @@ bool Pop_L( LinkStack &S, ElemType &e) {
  }// Pop_L
 ```
 
-#### 中缀表达式 > 后缀表达式
+#### 中缀表达式 => 后缀表达式
 
 1. 读入操作数，直接送入输出符号栈
 2. 读入运算符
@@ -177,7 +181,7 @@ bool Pop_L( LinkStack &S, ElemType &e) {
 	- 遇到开括号 (，进运算符号栈
 	- 遇到闭括号 )， 则把最靠近的开括号 ( 以及其后进栈的运算符依次弹出到符号栈
 4. 遇到结束符 “#”，则把运算符号栈内的所有运算符号依次弹出并压入输出符号栈
-5. 若输入为+、 –单目运算符，改为 0 与运算对象在前，运算符在后  
+5. 若输入为+、–单目运算符，改为 0 与运算对象在前，运算符在后  
 
 ## 第四章 Queue(队列)
 
@@ -278,15 +282,15 @@ bool deQueue_L(kinkQueue &Q, ElemType &e){
 bool enQueue_L(likQueue &Q, ElemType e){
     queuePtr s;
     if((s=(LNode *)malloc(sizeof(LNode)))==NUll)
-        return false;                   // 存储分配失败
+        return false;                // 存储分配失败
     
     s->data = e;
     s->next = NULL;
     
     if(Q.rear==NULL){
-        Q.front = Q.rear = s;           // 若链队为空,则新结点既是队首结点又是队尾结点
+        Q.front = Q.rear = s;        // 若链队为空,则新结点既是队首结点又是队尾结点
     }else if(Q.rear!=NULL){
-        Q.rear = Q.rear->next = s;      // 若链队非空，则新结点被链接到队尾并修改队尾指针
+        Q.rear = Q.rear->next = s;   // 若链队非空，则新结点被链接到队尾并修改队尾指针
     } 
 }
 ```
@@ -1605,36 +1609,36 @@ private static void sink(int arr[]， int index， int length) {
 ```c++
 // MARK: - 合并数组
 void merge(int arr[], int left, int right, int _left, int _right, int tmp_arr[]) {
-    
-                                                               // 引入两个数组
+                                                               
     int p = left;
-    int _p = _left;                                            // 两指向数组的指针
-    int tp = 0;                                                // 新数组的指针
+    int _p = _left;	// 两指向数组的指针
+    int tp = 0; 	// 新数组的指针
     
-    while (p <= right && _p <= _right) {                       // 如果两个数组都不为空
+    while (p <= right && _p <= _right) {	// 如果两个数组都不为空
+		
+        // 对比数组第一个数的大小 将较小的一个数放入新数组
+        if (arr[p] < arr[_p]) tmp_arr[tp++] = arr[p++];	
 
-        if (arr[p] < arr[_p]) tmp_arr[tp++] = arr[p++];        // 对比数组第一个数的大小
-
-        else if (arr[_p] <= arr[p]) tmp_arr[tp++] = arr[_p++]; // 将较小的一个数放入新数组
-
+        else if (arr[_p] <= arr[p]) tmp_arr[tp++] = arr[_p++];	
     }
 
-    while (p <= right) tmp_arr[tp++] = arr[p++];               // 当一个数组为空时
-    while (_p <= _right) tmp_arr[tp++] = arr[_p++];            // 将另一个数组的所剩的数放入新数组
+    while (p <= right) tmp_arr[tp++] = arr[p++];	// 当一个数组为空时
+    while (_p <= _right) tmp_arr[tp++] = arr[_p++];	// 将另一个数组的所剩的数放入新数组
 
-    for (int i = 0; i < tp; i++) arr[left+i] = tmp_arr[i];     // 将排好的新数组导入旧数组中
+    for (int i = 0; i < tp; i++)	// 将排好的新数组导入旧数组中
+        arr[left+i] = tmp_arr[i];	
 }
 
 // MARK: - 分割数组
 void mergeSort(int arr[], int tmp_arr[], int left, int right){
 
-    if(left == right) return;                               // 只剩下也个数字时
+    if(left == right) return;	// 只剩下也个数字时
 
-    int mid = (left + right) / 2;                           // 平均分成两份
-    mergeSort(arr, tmp_arr, left, mid);                     // 递归分割
+    int mid = (left + right) / 2;	// 平均分成两份
+    mergeSort(arr, tmp_arr, left, mid);	// 递归分割
     mergeSort(arr, tmp_arr, mid+1, right);
 
-    merge(arr, left, mid, mid+1, right, tmp_arr);           // 每一次切割对应一次合并
+    merge(arr, left, mid, mid+1, right, tmp_arr);	// 每一次切割对应一次合并
 }
 
 // MARK: - 归并排序
@@ -1871,11 +1875,11 @@ struct AVLNode{
 
 ##### LR 左孩子的右子树被插入
 
-孩子左旋根右旋
+孩子左旋父右旋
 
 ##### RL 右孩子的左子树被插入
 
-孩子右旋根左旋
+孩子右旋父左旋
 
 #### 删除二度节点
 
