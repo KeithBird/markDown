@@ -16,7 +16,7 @@
 |   $x^2$   |   `x^2`   | $\ge$ | `\ge` |
 |  |  | $\prec$ | `\prec` |
 |  |  | $\succ$ | `\succ` |
-| $\sqrt[123]{ x^2+y^2 }$ | `\sqrt[123]{ x^2+y^2 }` | $\perp$ | `perp` |
+| $\sqrt[123]{ x^2+y^2 }$ | `\sqrt[123]{ x^2+y^2 }` | $\perp$ | `\perp` |
 | $\dots$ |`\dots`| $\vee$ | `$\vee$` |
 | $\cdots$ |`\cdots`|     $\wedge$      | `$wedge$` |
 | $\sum \limits_{i=1}^n$​ |`\sum \limits_{i=1}^n`| $\leftrightarrow$ | `$\leftrightarrow$` |

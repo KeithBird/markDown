@@ -592,7 +592,8 @@ $$
 #### 开普勒效应
 
 $$
-v_{r}=\frac{u \pm v_R}{u \mp v_S} v_S
+f'=\frac{v \pm v_R}{v \mp v_S} f\\
+v_R 为观察者速度~~~v_S 为发射源速度~~~v为波速
 $$
 
 

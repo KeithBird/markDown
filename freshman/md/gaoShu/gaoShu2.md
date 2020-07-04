@@ -1,5 +1,7 @@
 # 高数2
 
+[TOC]
+
 ## 第八章  向量代数与空间解析几何
 
 ### 向量及其线性运行
@@ -48,7 +50,7 @@ $$
 		b_x~~~b_y~~~b_z
 	\end{array}
 \right\|
-=(a_yb_z+z_zb_y,~a_zb_x+a_xb_z,~a_xb_y+a_yb_x)
+=(a_yb_z+a_zb_y,~a_zb_x+a_xb_z,~a_xb_y+a_yb_x)~~~(注意a_zb_x-a_xb_z)
 $$
 
 #### 向量积性质
@@ -59,16 +61,19 @@ $$
 
 ### 平面及其方程
 
-#### 点法式
-
-$$
-n\cdot\vec{MM_0}=A(x-x_0)+B(y-y_0)+C(z-z_0)=0
-$$
-
 #### 一般式
 
 $$
 Ax+By+Cz+D=0
+$$
+$$
+\vec n = (A, B, C)
+$$
+
+#### 点法式
+
+$$
+n\cdot\vec{MM_0}=A(x-x_0)+B(y-y_0)+C(z-z_0)=0~~~(M_0为已知点)
 $$
 
 #### 截距式
@@ -78,26 +83,28 @@ $$
 $$
 
 #### 点到平面距离
-
 $$
 \begin{align}
 	d&=|Prj_{\vec n}P_0P|=\frac{|\vec{P_0P} \cdot \vec n|}{|\vec n|}~~~(P为平面内任意一点)\\\\
 	&=\frac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}	
 \end{align}
 $$
-
 ### 空间直线及其方程
 
 #### 一般式
 
-注：直线的一般方程并**不唯一**
+注：直线的一般方程为两个面的交线方程，并**不唯一**
+
 $$
-\left\{
+L=\left\{
 	\begin{array}{c}
 		A_1x+B_1y+C_1z+D_1=0\\
 		A_2x+B_2y+C_2z+D_2=0
 	\end{array}
 \right.
+$$
+$$
+\vec s = (A_1, B_1, C_1) \times (A_2, B_2, C_2) // L
 $$
 
 #### 点向式
@@ -108,7 +115,8 @@ $$
 
 #### 参数方程
 
-$(m,n,p)$ 为方向数
+$(m,n,p)$ 为方向向量
+
 $$
 \left\{
 	\begin{array}{c}
@@ -119,6 +127,22 @@ $$
 \right.
 $$
 
+#### 点线距离
+
+$$
+P(x_p,y_p,z_p)=
+\left\{
+	\begin{array}{c}
+		m(x-x_0)+n(y-y_0)+p(z-z_0)=0\\
+		\frac{x-a}{m}=\frac{y-b}{n}=\frac{z-c}{p}
+	\end{array}
+\right.
+$$
+
+$$
+d = \sqrt{(x_p-x_0)^2+(y_p-y_0)^2+(z_p-z_0)^2}
+$$
+
 #### 平面束方程
 
 有直线的一般式得：
@@ -127,22 +151,87 @@ $$
 A_1x+B_1y+C_1z+D_1+\lambda(A_2x+B_2y+C_2z+D_2)=0
 $$
 
-### 曲面及其方程
+### 曲面及其方程 ???
 
-#### 曲面研究的基本问题
+#### 曲面的一般方程
 
-#### 旋转曲面 
+$$
+F(x,y,z)=0
+$$
 
-#### 柱面 
+##### 切平面方程
 
-#### 二次曲面 
+在点 $M_0(x_0, y_0, z_0)$ 处：
+
+$$
+\vec{M_0M} \perp \vec n\Rightarrow F'_x(M_0)\cdot(x-x_0)+F'_y(M_0)\cdot(y-y_0)+F'_z(M_0) \cdot(z-z_0)=0
+$$
+
+##### 法线方程
+
+在点 $M_0(x_0, y_0, z_0)$ 处：
+
+$$
+\vec{M_0M}~//~\vec n\Rightarrow
+\frac{x-x_0}{F'_x(M_0)}=\frac{y-y_0}{F'_y(M_0)}=\frac{z-z_0}{F'_z(M_0)}
+$$
+
+#### 基本曲面
+
+##### 旋转曲面
+
+yOz 平面的曲线 $L:f(y,z)$ 绕 z 轴旋转所得的曲面为：
+$$
+f(\pm \sqrt{x^2+y^2}, z)=0
+$$
+
+##### 圆锥面
+
+$$
+z = \pm k \sqrt{x^2+y^2}
+$$
+
+##### 单叶双曲线
+
+$\frac{y^2}{a^2}-\frac{z^2}{b^2}=1$ 绕 z 轴旋转：
+$$
+\frac{x^2+y^2}{a^2}-\frac{z^2}{b^2}=1
+$$
+
+##### 双叶双曲线
+
+$\frac{y^2}{a^2}-\frac{z^2}{b^2}=1$ 绕 y 轴旋转：
+$$
+\frac{y^2}{a^2}-\frac{x^2+z^2}{b^2}=1
+$$
+
+##### 柱面
+
+$$
+f(x,y) = 0
+$$
+
+#### 二次曲面
+
+##### 球面
+
+$$
+x^2 + y^2 + z^2 = R^2
+$$
+
+#####  抛物面
+
+$$
+z = x^2 + y^2
+$$
+
+
 
 ### 空间曲线及其方程
 
 #### 空间曲线的一般方程
 
 两曲面的交线:
-
 $$
 \left\{
 	\begin{array}{c}
@@ -150,6 +239,23 @@ $$
 		G(x,y,z)=0
 	\end{array}
 \right.
+$$
+
+##### 切线方程
+
+在点 $M_0(x_0, y_0, z_0)$ 处：
+
+$$
+\vec{M_0M}~//~\vec e\Rightarrow
+\frac{x-x_0}{1}=\frac{y-y_0}{y'_x(M_0)}=\frac{z-z_0}{z'_x(M_0)}
+$$
+
+##### 法平面方程
+
+在点 $M_0(x_0, y_0, z_0)$ 处：
+
+$$
+\vec{M_0M} \perp \vec e\Rightarrow 1 \cdot (x-x_0)+y'_x(M_0)\cdot(y-y_0)+z'_x(M_0) \cdot(z-z_0)=0
 $$
 
 #### 空间曲线的参数方程
@@ -164,19 +270,32 @@ $$
 \right.
 $$
 
+##### 切线方程
+
+在点 $(x(t_0), y(t_0), z(t_0))$ 处：
+
+$$
+\vec{M_0M}~//~\vec e\Rightarrow
+\frac{x-x(t_0)}{x'(t_0)}=\frac{y-y(t_0)}{y'(t_0)}=\frac{z-z(t_0)}{z'(t_0)}
+$$
+
+##### 法平面方程
+
+在点 $(x(t_0), y(t_0), z(t_0))$ 处：
+$$
+\vec{M_0M} \perp \vec e\Rightarrow x'(t_0)[x-x(t_0)]+y'(t_0)[y-y(t_0)]+z'(t_0)[z-z(t_0)]=
+$$
+
 #### 空间投影
 
 ##### 两直线投影
-
 $$
 Prj_{\vec{b}} \vec a=\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}
 $$
-
 ##### 点到平面的投影
 
 1. 联立平面法向量与点，得到垂线
 2. 求垂线与平面交点
-
 $$
 \left\{
 	\begin{array}{c}
@@ -185,12 +304,10 @@ $$
 	\end{array}
 \right.
 $$
-
 ##### 点到平面的投影
 
 1. 过 $M_0$ 作垂直与 $l$ 的平面
 2. 求线与面的交点
-
 $$
 \left\{
 	\begin{array}{align}
@@ -199,7 +316,6 @@ $$
 	\end{array}
 \right.
 $$
-
 ##### 直线到平面的投影？？？
 
 ##### 曲面到坐标轴的投影
@@ -211,7 +327,6 @@ $$
 	\end{array}
 \right.
 $$
-
 ## 第九章 多元函数微分法及其应用
 
 ### 多元函数
@@ -219,11 +334,9 @@ $$
 #### 平面点集
 
 ##### 领域
-
 $$
 U(P_0)=U(P_0,\delta)={(P~\big|~0<|PP_0|<\delta)}
 $$
-
 ##### 边界点
 
 如果点 $P$ 的任一邻域内都既含有属于$E$ 的点，又含有不属于$E$ 的点，那么称 $P$ 为$E$ 的边界点。
@@ -259,19 +372,15 @@ $$
 使等式有意义的 $x$ 的集合
 
 ##### 二元函数的图形
-
 $$
 z = f(x,y) \Leftrightarrow M(x,y,x)
 $$
-
 二元函数的图形是空间曲面
 
 #### 多元函数的极限
-
 $$
 \lim \limits_{(x,y) \to (x_0,y_o)}f(x,y)=A
 $$
-
 #### 多元函数的连续性
 
 如果$ \lim \limits_{(x,y) \to (x_0,y_0)} = f(x_0,y_0)$ ，则$f(x,y)$ 在点 $P_0(x_0,y_0)$连续
@@ -285,11 +394,9 @@ $$
 #### 偏导数的定义及其计算方法
 
 ##### 偏导数
-
 $$
 \frac{\partial f}{\partial x}\bigg|_{(x_0,y_0)}= f'_x(x_0, y_0)=\lim \limits_{\Delta x \to 0} \frac{f(x_0 + \Delta x, y_0) - f(x_0, y_0)}{\Delta x}
 $$
-
 ##### 偏导函数
 
 对于每一点 $(x,y)$ 处的偏导数都存在
@@ -301,50 +408,38 @@ $$
 #### 高阶偏导数
 
 高阶混合偏导数在**偏导数连续**的条件下与求导次序无关。
-
 $$
-\frac{\partial^2 z}{\partial x \partial y}=\frac{\partial{(\frac{\partial z}{\partial x})}}{\partial y}=\frac{\partial^2 z}{\partial y \partial x}
+\frac{\partial^2 z}{\partial x \partial y}=\frac{\partial{(\frac{\partial z}{\partial x})}}{\partial y}=\frac{\partial^2 z}{\partial y \partial x}~~~f_{12}'=f_{21}'
 $$
-
 ### 全微分
 
 #### 全微分的定义
 
 ##### 偏增量
-
 $$
 f(x,y+\Delta y)-f(x,y)
 $$
-
 ##### 偏微分
-
 $$
 f'_y(x,y) \Delta y
 $$
-
 ##### 全增量
-
 $$
 \Delta z = f(x+\Delta x,y+\Delta y)-f(x,y)
 $$
-
 ##### 全微分
-
 $$
 dz=A \Delta x + B \Delta y\\
 A = \frac{\partial z}{\partial x}~~~B = \frac{\partial z}{\partial y}
 $$
-
 ##### 证明可微⚠️
 
 $\Delta z - dz = o(p)$ ，$p=\sqrt{(\Delta x)^2+(\Delta y)^2}$ ， $o(p)$ 为高阶无穷小
 
 即证：
-
 $$
 \lim \limits_{\Delta x \to 0\Delta y \to 0} \frac{\Delta z-(\frac{\partial z}{\partial x} \Delta x + \frac{\partial z}{\partial y} \Delta y)}{p}=0
 $$
-
 **偏导存在 + 连续 -> 全微分存在 => 偏导连续**
 
 ### 多元复合函数的求导法则
@@ -352,14 +447,16 @@ $$
 #### 一元函数与多元函数复合
 
 $z=f(\varphi(t),~\psi(t))$
-
 $$
 \frac{dz}{dt}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial t}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial t}
 $$
-
 #### 多元函数与多元函数复合
 
 $z=f(\varphi(x,y),~\psi(x,y))$
+$$
+u = \varphi(x,y)~~~v = \psi(x,y)~~~
+\frac{\partial z}{\partial u} = f_1'(u, v)~~~\frac{\partial z}{\partial v} = f_2'(u, v)
+$$
 
 $$
 \frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x}
@@ -368,7 +465,6 @@ $$
 $$
 \frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial y}
 $$
-
 #### 多元隐函数求导
 
 $$
@@ -377,7 +473,6 @@ $$
 = -\frac{\frac{\partial F}{\partial x}}
 {\frac{\partial F}{\partial y}}
 $$
-
 ### 多元函数微分学的几何应用
 
 #### 曲面的切平面和法线
@@ -385,25 +480,18 @@ $$
 $$
 F(x,y,z)=0
 $$
-
 ##### 法向量
-
 $$
-\vec n = \{F'_x,F'_y,F'_z\}
+\vec n = (F'_x,F'_y,F'_z)|_{(x,y,z)}
 $$
-
 ##### 法线
-
 $$
 \frac{x-x_0}{F'_x}=\frac{y-y_0}{F'_y}=\frac{z-z_0}{F'_z}
 $$
-
 ##### 切平面
-
 $$
 F'_x(x-x_0)+F'_y(y-y_0)+F'_z(z-z_0)=0
 $$
-
 #### 曲线的切线与法平面
 
 $$
@@ -415,24 +503,18 @@ $$
 	\end{array}
 \right.
 $$
-
 ##### 切向量
-
 $$
 \vec{T}=\{\varphi'(t),~\psi'(t),~\omega'(t)\}=\{1,~\frac{dy}{dx},~\frac{dz}{dx}\}
 $$
-
 ##### 切线
-
 $$
 \frac{x-x_0}{\varphi'(t_0)}=\frac{y-y_0}{\psi'(t_0)}=\frac{z-z_0}{\omega'(t_0)}
 $$
-
 ##### 法平面
 $$
 \varphi'(t_0)(x-x_0)+\psi'(t_0)(y-y_0)+\omega'(t_0)(z-z_0)
 $$
-
 
 
 ### 方向导数与梯度
@@ -454,7 +536,6 @@ gradf=(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partia
 \vec l= (x,y,z)~~~~~\vec{e_l}=(\frac{x}{l},\frac{y}{l},\frac{z}{l})\\
 \frac{\partial f}{\partial l}\bigg|_{max}=|gradf|=gradf(max)\cdot \vec{e_l}
 $$
-
 ### 多元函数的极值
 
 #### 无条件极值和最值
@@ -472,15 +553,12 @@ $$
 	\end{array}
 \right.
 $$
-
 ###### 2. 求极值
 
 （代入驻点）
-
 $$
 A = f''_{xx}~~~~~B = f''_{xy}~~~~~C = f''_{yy}
 $$
-
 |            |          |
 | :--------: | :------: |
 | $AC-B^2>0$ |  有极值  |
@@ -496,7 +574,6 @@ $A < 0$：极大值
 ##### 最值
 
 ###### 1. 求出两个偏导为0的解
-
 $$
 \left\{
 	\begin{array}{c}
@@ -505,7 +582,6 @@ $$
 	\end{array}
 \right.
 $$
-
 ###### 2. 作图找出定义域边界
 
 ###### 3. 将解和边界方程代入原函数
@@ -533,7 +609,6 @@ $\varphi(x, y)=0$
 1. $F(x, y, \lambda) = f(x, y) + \lambda \varphi (x, y)$
 
 2. 求驻点
-
 $$
 \left\{
   \begin{array}{c}
@@ -550,34 +625,28 @@ $$
 ### 二重积分的概念与性质
 
 #### 二重积分的概念
-
 $$
 \lim \limits_{\lambda \to 0}\sum \limits_{i=1}^n 
 f(x_i, y_i)\Delta \sigma_i
 =\iint \limits_{Dxoy} f(x, y) d\sigma
 $$
-
 #### 二重积分的性质
 
 1. 保号性
-
 $$
 f(x,y) \le g(x,y) \Rightarrow
 \iint \limits_Df(x, y)d\sigma \le \iint \limits_Dg(x,y)d\sigma
 $$
 2. 保号性的特殊情形
-
 $$
 \bigg|\iint \limits_Df(x, y)d\sigma\bigg| \le
 \iint \limits_D | f(x, y) | d\sigma
 $$
 3. 介值定理
-
 $$
 \frac{1}{\sigma} \iint \limits_D f(s, y) d\sigma
 =f(\xi, \eta)
 $$
-
 ### 二重积分的计算
 
 #### 直角坐标
@@ -589,13 +658,11 @@ $$
 \int_a^b xdx \int_c^d ydy
 \Rightarrow \int_a^b \int_c^d xydy dx
 $$
-
 2. 依次向前积分
 $$
 \int_a^b \int_c^d xydy dx
 \Rightarrow \int_a^b dx \big(\frac{1}{2} x y^2\big)\bigg|^d_c
 $$
-
 ##### 交换积分次序
 
 1. 把未知数集中到后面
@@ -621,11 +688,9 @@ $$
 5. 将边界为数字的放在最前面
 
 #### 极坐标
-
 $$
 x=\rho cos\theta~~~~~y=\rho sin\theta~~~~~dxdy=\rho \cdot d\theta d\rho
 $$
-
 ##### 与圆有关的二重积分
 
 1. 将方程化为极坐标方程
@@ -637,7 +702,6 @@ $$
 #### 积分区域对称的二重积分
 
 ##### 若关于y对称(-x)
-
 $$
 \begin{align}
 
@@ -649,9 +713,7 @@ f(-x,y)=f(x,y) &\Rightarrow
 
 \end{align}
 $$
-
 ##### 若关于x对称(-y)
-
 $$
 \begin{align}
 
@@ -663,9 +725,7 @@ f(x,-y)=f(x,y) &\Rightarrow
 
 \end{align}
 $$
-
 ##### 若关于原点对称
-
 $$
 \begin{align}
 
@@ -677,7 +737,6 @@ f(-x,-y)=f(x,y) &\Rightarrow
 
 \end{align}
 $$
-
 ### 三重积分
 
 #### 三重积分的概念
@@ -709,7 +768,7 @@ $$
 
 ## 第十一章 曲线积分与曲面积分
 
-### 对弧长的曲线积分
+### 对弧长的曲线积分 
 
 #### 概念与性质
 
@@ -722,27 +781,22 @@ $$
 #### 计算方法
 
 ##### 弧度相关
-
 $$
 \int \limits_L f(x, y) ds
 =\int_\alpha^\beta f[x(\theta),y(\theta)] \cdot
 \sqrt{[x'(\theta)]^2 + [y'(\theta)]^2} d\theta
 $$
-
 ##### 可以用x表示y
-
 $$
 \int \limits_L f(x, y) ds
 =\int_a^b f[x,y(x)] \cdot
 \sqrt{1^2 + [y'(x)]^2} dx
 $$
-
 ##### 对称
 
 1. $\int \limits_ L 1 ds = L的长度$
 
 2. L 关于 x 轴对称
-
 $$
 \begin{align}
 
@@ -754,9 +808,7 @@ f(-x,y)=f(x,y) &\Rightarrow
 
 \end{align}
 $$
-
 2. L 关于 y 轴对称
-
 $$
 \begin{align}
 
@@ -768,13 +820,10 @@ f(x,-y)=f(x,y) &\Rightarrow
 
 \end{align}
 $$
-
 ### 对坐标的曲线积分
-
 $$
 \int \limits_L P(x, y)dx + Q(x, y)dy
 $$
-
 #### 概念与性质
 
 被积函数为**矢量**，如力
@@ -793,7 +842,6 @@ $$
 =\int^\beta_\alpha(P[x(\theta), y(\theta)]\cdot x'(\theta) +
 Q([x(\theta),y(\theta)]\cdot y'(\theta))dt
 $$
-
 ##### 可以用x表示y
 
 $y’(x)来自L$
@@ -801,7 +849,6 @@ $$
 \int \limits_LP(x,y)dx + Q(x,y)dy
 = \int^b_a(P[x,y(x)]+Q[x,y(x)]\cdot y'(x))dx
 $$
-
 ##### 利用性质
 
 当 $\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}$：
@@ -809,14 +856,12 @@ $$
 
 当L为正向(逆时针)无交叉闭曲线，且P、Q在L围成的区域内有连续的一阶偏导：
 $$
-\oint \limits_L Pdx + Qdy = \iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy
+\oint \limits_L Pdx + Qdy = \iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy~~~(P和Q交换了)
 $$
-
 当L为逆向(顺时针)无交叉闭曲线，且P、Q在L围成的区域内有连续的一阶偏导：
 $$
-\oint \limits_L Pdx + Qdy = -\iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy
+\oint \limits_L Pdx + Qdy = -\iint \limits_D (\frac{\partial Q}{\partial x} -\frac{\partial P}{\partial y})dxdy~~~(P和Q交换了)
 $$
-
 ### 两类曲线积分的联系 ???
 
 ### 格林公式
@@ -828,14 +873,11 @@ $$
 \iint \limits_D(\frac{\partial Q}{\partial x}
 -\frac{\partial P}{\partial y}) dxdy = \oint_L P(x,y)dx + Q(x,y)dy
 $$
-
 #### 曲线积分与路径无关的条件
-
 $$
 \frac{\partial Q}{\partial x}
 -\frac{\partial P}{\partial y}
 $$
-
 
 
 #### 二元函数的全微分求积
@@ -849,14 +891,12 @@ $$
 #### 计算方法
 
 ##### $\Sigma:z=z(x,y)$
-
 $$
 \iint \limits_{\Sigma} f(x,y,z) 
 =\iint \limits_D f[x,y,z(x,y)] 
 \cdot \sqrt{1 + (\frac{\partial z}{\partial x})^2
 + (\frac{\partial z}{\partial y})^2 } \cdot dx dy
 $$
-
 1. 画出 $\Sigma$ ，并表示出 $\Sigma$ 在 xoy 的投影 D
 
 2. 将 $\Sigma$ 表示成 z = z (x, y) 的形式
@@ -891,27 +931,28 @@ $$
 \iint \limits_{\Sigma} P(x, y, z)dydz =
 \iint \limits_D P[x(y, z), y, z]dydz
 $$
-
 2. 曲面背离眼睛
 $$
 \iint \limits_{\Sigma} P(x, y, z)dydz =
 -\iint \limits_D P[x(y, z), y, z]dydz
 $$
-
 3. 曲面缩为曲线
 $$
 \iint \limits_{\Sigma} P(x, y, z)dydz = 0
 $$
 
-
-
 ### 两类曲线积分的联系
 
-### 高斯公式
+### 高斯公式？？？
 
-### 斯托克斯公式
+$$
+\iint \limits_\Sigma Pdydz+Qdzdx+Rdxdy = \iiint \limits_\Omega 
+(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})dv
+$$
 
-## 第十二章
+### 斯托克斯公式？？？
+
+## 第十二章 无穷级数
 
 ### 判断函数敛散性
 
@@ -925,9 +966,9 @@ $$
 
 - 末项 = 0
 
-	- $|u_n| < |u_{n+1}| $ **发散** 
+	- $|u_n| < |u_{n+1}| $ **发散** 
 
-	- $|u_n| > |u_{n+1}| $ **收敛** 
+	- $|u_n| > |u_{n+1}| $ **收敛** 
 
 #### 判断绝对收敛和条件收敛
 
@@ -952,13 +993,169 @@ $$
 2. 若 $\sum \limits^{\infty}_{n=0}a_n(x+b)^n$ 在 $x = x_0$ 处**发散**，
 则当 $|x + b| > |x_0 + b|$ 时，幂级数在 x 处**发散**
 
-#### 求幂级数的收敛域
+#### 幂级数的收敛域
 
 $$
-1. \bigg|\lim\limits_{n \to \infty} \frac{u_{n+1}}{n_n}\bigg| < 1\\
+1. \bigg|\lim\limits_{n \to \infty}
+\frac{u_{n+1}}{n_n}\bigg| < 1
 $$
 
 $$
 2. 判断 \bigg|\lim\limits_{n \to \infty} \frac{u_{n+1}}{n_n}\bigg| = 1时，函数的敛散性
 $$
+#### 幂级数的收敛半径
+
+将 $\big|\lim\limits_{n \to \infty}\frac{u_{n+1}}{u_n}\big| 
+< 1$ 的结果化成 | x+a | < R 的形式， R 为收敛半径
+
+#### 幂级数在收敛域内的和函数
+
+$V_n$ 中 n 既不作为被除数也不作为因数，则转换成功
+
+1. 转换不成功可令 $\frac{1}{x}S_2(x)=S(x)$，先求 $S_2(x)$
+
+2. 如果 $n^{a}$ 作为被除数或因数，则多次求导或多次积分
+
+$S(x)$ 后加上**收敛半径**
+
+##### 若 $u_n$ 作为被除数
+
+$$V_n = u_n'$$
+$$
+S(x) = \int\frac{V_1}{1-\frac{V_{n+1}}{V_n}} + C(C可使S(0)=0)
+$$
+##### 若 $u_n$ 作为因数
+
+$$V_n = \int u_n$$
+$$
+S(x) = (\frac{V_1}{1-\frac{V_{n+1}}{V_n}})'
+$$
+#### 展开成幂级数
+
+1. 令 a=幂级数的元素，将原函数中的 x 用 a 表示
+
+2. 对照公式，展开函数
+
+3. 用 x 替换回 a，注意条件
+$$
+\begin{align}
+e^a &= \sum \limits_{n=0}^{\infty}\frac{1}{n!}a^n\\\\
+
+sin a &= \sum \limits^\infty_{n=0} \frac{(-1)^n}{(2n+1)!} \cdot a^{2n+1}\\\\
+
+cos a &= \sum \limits^\infty_{n=0} \frac{(-1)^n}{(2n)!} \cdot a^{2n}\\\\
+
+ln(1+a) &= \sum \limits^\infty_{n=1} \frac{(-1)^{n-1}}{n} \cdot a^n (-1 < a \le 1)\\\\
+
+\frac{1}{1+a} &= \sum \limits^\infty_{n=0}(-1)^n \cdot a^n (|a|<1)\\\\
+
+\frac{1}{1-a} &= \sum \limits^\infty_{n=0} a^n (|a|<1)\\\\
+
+\end{align}
+$$
+
+#### 欧拉公式
+
+$$
+\begin{align}
+& e^{ix} = cosx + i \cdot sinx\\
+\Rightarrow& e^{i\pi}=cos\pi+i \cdot sin\pi\\
+\Rightarrow& e^{i\pi}+1=0
+\end{align}
+$$
+
+### 傅立叶变换
+
+任一**周期函数**可变化为一系列正弦函数之和
+$$
+f(x)=\frac{a_0}{2}+\sum \limits_{n=1}^{\infty}(a_ncosnx+b_nsinnx)~~~(T=2\pi)
+$$
+
+#### 三角函数系及其正交性
+
+##### 三角函数系
+
+$$
+1, cosx, sinx, cos2x, sin2x, cos3x, sin3x \dots cosnx, sinnx
+$$
+
+##### 正交性
+
+上述三角函数中**任意两个不同**函数的乘积在 $[-\pi, \pi]$ 的积分为 0
+
+$$
+\int^{\pi}_{-\pi}sinmx~cosnx~dx=\frac{1}{2} 
+\int^{\pi}_{-\pi} [sin(m+n)x+cos(m-n)x]dx = 0
+~~~(n\neq m)
+$$
+$$
+\int^{\pi}_{-\pi}cosmx~cosnx~dx=\frac{1}{2} 
+\int^{\pi}_{-\pi} [cos(m+n)x+cos(m-n)x]dx = 0
+~~~(n\neq m)
+$$
+$$
+\begin{align}
+注：~&\\
+&\int^{\pi}_{-\pi} 1~dx = 2\pi~~~
+\int^{\pi}_{-\pi} sin^2nx~dx = \pi~~~
+\int^{\pi}_{-\pi} cos^2nx~dx = \pi\\\\
+\end{align}
+$$
+
+##### 积化和差公式
+
+积化和差得和差，余弦在后要相加；异名函数取正弦，正弦相乘取负号。
+
+$$
+\begin{align}
+sin\alpha cos\beta &= \frac{1}{2}[sin(\alpha+\beta)+sin(\alpha-\beta)]\\
+cos\alpha sin\beta &= \frac{1}{2}[sin(\alpha+\beta)-sin(\alpha-\beta)]\\
+cos\alpha cos\beta &= \frac{1}{2}[cos(\alpha+\beta)+cos(\alpha-\beta)]\\
+sin\alpha sin\beta &= -\frac{1}{2}[cos(\alpha+\beta)-cos(\alpha-\beta)]
+\end{align}
+$$
+
+#### 傅立叶级数
+
+$$
+\begin{align}
+f(x)&=\frac{a_0}{2}+\sum \limits_{n=1}^{\infty}(a_ncosnx+b_nsinnx)\\\\
+a_0 &= \frac{1}{\pi} \int^{\pi}_{-\pi} f(x) dx\\\\
+a_n &= \frac{1}{\pi} \int^{\pi}_{-\pi} f(x) cos~nx~dx\\\\
+b_n &= \frac{1}{\pi} \int^{\pi}_{-\pi} f(x) sin~nx~dx
+\end{align}
+$$
+
+##### 狄氏条件
+
+1. 在一个周期内连续，或有有限个第一类间断点（可去、跳跃）
+2. 在一个周期内只有有限个极值点
+3. 则函数的傅立叶级数收敛，且 x 收敛于 $\frac{1}{2}[f(x^-)+f(x^+)]$
+
+#### 展开成傅立叶级数
+
+1. 找出间断点
+2. 写出傅立叶级数
+3. 求解 $~a_0~~a_n~~b_n~$，使用分部积分法：$\int udv = uv -\int v du$
+4. 可以用 (2k-1)  化简结果
+5. 间断点 = $\frac{1}{2}[f(x^-)+f(x^+)]$
+
+## 引用
+
+[求导法则](https://baike.baidu.com/item/%E5%AF%BC%E6%95%B0%E8%A1%A8/10889755?fr=aladdin](https://baike.baidu.com/item/导数表/10889755?fr=aladdin))
+
+[等价无穷小](https://www.zhihu.com/question/25837551)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
