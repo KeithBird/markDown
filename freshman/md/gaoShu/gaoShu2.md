@@ -35,7 +35,7 @@ $\vec a \cdot \vec b$
 
 #### 向量积
 
-$|\vec{c}|=|\vec{a}||\vec{b}|sin\theta$
+$|\vec a \times \vec b|=|\vec{c}|=|\vec{a}||\vec{b}|sin\theta$
 
 $\vec{c}$ 的方向由右手规则求得
 
@@ -791,6 +791,7 @@ $$
 \int \limits_L f(x, y) ds
 =\int_a^b f[x,y(x)] \cdot
 \sqrt{1^2 + [y'(x)]^2} dx
+~~~y'(x)与L相关
 $$
 ##### 对称
 

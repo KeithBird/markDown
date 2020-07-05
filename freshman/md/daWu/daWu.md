@@ -44,7 +44,7 @@ $$
 
 描述由速度大小变化快慢，方向为$\vec{e_t}$，与速度$\vec{v}$方向相同
 $$
-\vec{a_\tau}=\frac{dv}{dt}\vec{e_\tau}~~~~~~~~~~a_\tau=\frac{dv}{dt}~~~~~~~~~~
+\vec{a_\tau}=\frac{dv}{dt}\vec{e_\tau}~~~~~~~~~~\vec{e_\tau}=\frac{\vec v}{|\vec v|}
 $$
 
 #### 角加速度
@@ -81,7 +81,7 @@ $$
 
 #### 自然坐标系
 
-以动点为原点，以切向单位矢量 $\vec{e_t}$ 和法向单位矢量 $\vec{e_n}$ 为坐标轴建立的坐标系。
+以动点为原点，以**切向**单位矢量 $\vec{e_\tau}$ 和**法向**单位矢量 $\vec{e_n}$ 为坐标轴建立的坐标系。
 
 #### 匀加速运动
 
@@ -124,7 +124,7 @@ $$
 \end{align}
 $$
 
-2. 质点作曲线运动的方程为 $x=2t,~y=4-t^2(SI)$ ，求 $t$ 时刻质点的 $a_\tau$ 和 $a_\tau$ 
+2. 质点作曲线运动的方程为 $x=2t,~y=4-t^2(SI)$ ，求 $t$ 时刻质点的 $a_\tau$ 和 $a_n$ 
 $$
 \begin{align}
 	\vec{v}&=2\vec{e_x}-2t\vec{e_y}\\
@@ -266,6 +266,11 @@ $$
 #### 功
 
 $$
+W = \vec{F} \cdot \vec r = F_xr_x+F_yr_y+F_zr_z
+$$
+
+
+$$
 dW=\vec{F}\cdot d\vec{r}=F|d\vec{r}|cos\theta\\
 \theta=位移与力的方向夹角
 $$
@@ -377,6 +382,7 @@ A = \int_{\theta_1}^{\theta_2} Md\theta
 $$
 
 ### 转动动能
+
 $$
 E_k = \frac{1}{2}J\omega^2
 $$
@@ -504,6 +510,7 @@ $$
 $$
 
 ##### 单摆频率
+
 $$
 \omega = \sqrt{\frac{g}{l}}~~~~~T=\frac{2\pi}{\omega}~~~~~f=\frac{\omega}{2\pi}
 $$
@@ -511,6 +518,14 @@ $$
 ### 波动
 
 #### 波动的描述
+
+##### 波腹
+
+波腹是驻波场中的**振幅**最大的点、线或曲面
+
+##### 波节
+
+波节是驻波场中的**振幅**为零的点、线或曲面
 
 ##### 图像描述求初相
 
@@ -536,18 +551,18 @@ $$
 
 ###### 波沿正方向传播
 $$
-y = A cos[2 \pi(\frac{t}{T}-\frac{x}{\lambda}) + \varphi]
+y = A cos[2 \pi(\frac{t}{T}-\frac{x}{\lambda}) + \varphi]（注意方向）
 $$
 $$
-y = A cos[\omega (t-\frac{x}{u}) + \varphi]
+y = A cos[\omega (t-\frac{x}{u}) + \varphi]（注意方向）
 $$
 
 ###### 波沿负方向传播
 $$
-y = A cos[2 \pi(\frac{t}{T}+\frac{x}{\lambda}) + \varphi]
+y = A cos[2 \pi(\frac{t}{T}+\frac{x}{\lambda}) + \varphi]（注意方向）
 $$
 $$
-y = A cos[\omega (t+\frac{x}{u}) + \varphi]
+y = A cos[\omega (t+\frac{x}{u}) + \varphi]（注意方向）
 $$
 
 ##### 波的相位差
