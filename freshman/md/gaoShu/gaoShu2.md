@@ -750,7 +750,7 @@ $$
 1. 结合表，表示出 $\Omega$ ，
 并**以 $z$ 为因变量列方程，表示出上下曲面**
 
-2. 求解 $g(x,y) = \int_{下表面}^{上表面} f(x,y,z)dz$
+2. 求解 $g(x,y) = \int_{下表面}^{上表面} f(x,y,z)dz~~~求体积时~f = 1$ 
 
 3. 求出 $\Omega$ 在 $xoy$ 的投影 $D$
 
@@ -900,7 +900,7 @@ $$
 $$
 1. 画出 $\Sigma$ ，并表示出 $\Sigma$ 在 xoy 的投影 D
 
-2. 将 $\Sigma$ 表示成 z = z (x, y) 的形式
+2. 将 $\Sigma$ 表示成 z = f (x, y) 的形式
 
 3. 求出 $f(x, y, z(x, y))~,~\frac{\partial z}{\partial x}~,
 ~\frac{\partial z}{\partial y}$
@@ -998,11 +998,11 @@ $$
 
 $$
 1. \bigg|\lim\limits_{n \to \infty}
-\frac{u_{n+1}}{n_n}\bigg| < 1
+\frac{u_{n+1}}{u_n}\bigg| < 1
 $$
 
 $$
-2. 判断 \bigg|\lim\limits_{n \to \infty} \frac{u_{n+1}}{n_n}\bigg| = 1时，函数的敛散性
+2. 判断 \bigg|\lim\limits_{n \to \infty} \frac{u_{n+1}}{u_n}\bigg| = 1时，函数的敛散性
 $$
 #### 幂级数的收敛半径
 
@@ -1147,7 +1147,7 @@ $$
 
 [等价无穷小](https://www.zhihu.com/question/25837551)
 
-
+$2 \pi a^3$
 
 
 
